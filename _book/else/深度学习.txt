@@ -1,0 +1,27 @@
+深度学习文档：http://zh.gluon.ai/chapter_prerequisite/ndarray.html
+
+sklearn中文文档：https://sklearn.apachecn.org/docs/master/2.html  英文文档：https://keras.io/getting_started/
+
+numpy文档：https://www.numpy.org.cn/user/quickstart.html#%E5%85%88%E5%86%B3%E6%9D%A1%E4%BB%B6
+
+matplotlib文档：https://matplotlib.org/stable/tutorials/introductory/usage.html
+
+tensorflow:https://www.tensorflow.org/tutorials/quickstart/beginner?hl=zh_cn
+
+pytorch文档：https://pytorch.apachecn.org/docs/1.7/03.html
+
+机器学习100天练习：
+https://github.com/MLEveryday/100-Days-Of-ML-Code
+
+数据集
+科赛网数据集：
+https://www.heywhale.com/home/dataset
+
+sklearn自带数据集：https://scikit-learn.org/stable/modules/classes.html?highlight=dataset#module-sklearn.datasets
+
+paddlehub教程：
+https://paddlehub.readthedocs.io/zh_CN/release-v2.1/tutorial/serving.html
+https://aistudio.baidu.com/aistudio/projectoverview/public
+
+
+tensorflow:https://www.bookstack.cn/books/eat_tensorflow2_in_30_days-zh?tab=comment

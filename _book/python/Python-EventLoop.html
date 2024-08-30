@@ -1,0 +1,646 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Python EventLoop · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Python-BigApplication.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Intorduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Else
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../else/Nginx常用配置.html">
+            
+                <a href="../else/Nginx常用配置.html">
+            
+                    
+                    Nginx常用配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../else/docker.html">
+            
+                <a href="../else/docker.html">
+            
+                    
+                    Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../else/echarts封装.html">
+            
+                <a href="../else/echarts封装.html">
+            
+                    
+                    Echarts封装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../else/git笔记.html">
+            
+                <a href="../else/git笔记.html">
+            
+                    
+                    Git笔记
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../else/数据结构与算法.html">
+            
+                <a href="../else/数据结构与算法.html">
+            
+                    
+                    数据结构与算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../else/浏览器事件循环.html">
+            
+                <a href="../else/浏览器事件循环.html">
+            
+                    
+                    浏览器事件循环
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../else/浏览器工作原理.html">
+            
+                <a href="../else/浏览器工作原理.html">
+            
+                    
+                    浏览器工作原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    Go Gin
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    Problem
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../problem/docker报错.html">
+            
+                <a href="../problem/docker报错.html">
+            
+                    
+                    Docker报错
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../problem/node安装报错.html">
+            
+                <a href="../problem/node安装报错.html">
+            
+                    
+                    Node安装报错
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    Python
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="4.1.1" data-path="Python-EventLoop.html">
+            
+                <a href="Python-EventLoop.html">
+            
+                    
+                    Python EventLoop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="Python-BigApplication.html">
+            
+                <a href="Python-BigApplication.html">
+            
+                    
+                    Python BigApplication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="Python-Decorator.html">
+            
+                <a href="Python-Decorator.html">
+            
+                    
+                    Python Decorator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.4" data-path="reload-pandas方法.html">
+            
+                <a href="reload-pandas方法.html">
+            
+                    
+                    Reload Pandas方法
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" >
+            
+                <span>
+            
+                    
+                    Torndao
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../torndao/基本用法.html">
+            
+                <a href="../torndao/基本用法.html">
+            
+                    
+                    基本用法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.2" data-path="../torndao/异步装饰器.html">
+            
+                <a href="../torndao/异步装饰器.html">
+            
+                    
+                    异步装饰器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.1.3" data-path="../torndao/继承Application.html">
+            
+                <a href="../torndao/继承Application.html">
+            
+                    
+                    继承Application
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Python EventLoop</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p>Python &#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x662F;&#x5904;&#x7406;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x7684;&#x4E00;&#x79CD;&#x673A;&#x5236;&#xFF0C;&#x5B83;&#x4F7F;&#x5F97;&#x7A0B;&#x5E8F;&#x80FD;&#x591F;&#x5728;&#x5355;&#x7EBF;&#x7A0B;&#x4E2D;&#x5904;&#x7406;&#x591A;&#x4E2A;&#x4EFB;&#x52A1;&#x800C;&#x65E0;&#x9700;&#x963B;&#x585E;&#x3002;&#x8FD9;&#x79CD;&#x673A;&#x5236;&#x5E7F;&#x6CDB;&#x7528;&#x4E8E;&#x5F02;&#x6B65; I/O &#x64CD;&#x4F5C;&#x3001;&#x534F;&#x7A0B;&#x548C;&#x5E76;&#x53D1;&#x4EFB;&#x52A1;&#x7BA1;&#x7406;&#x3002;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x8C03;&#x5EA6;&#x548C;&#x7BA1;&#x7406;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x786E;&#x4FDD;&#x4EFB;&#x52A1;&#x5728;&#x5B8C;&#x6210;&#x65F6;&#x80FD;&#x591F;&#x88AB;&#x9002;&#x5F53;&#x5904;&#x7406;&#x3002;</p>
+<h3 id="&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;">&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;</h3>
+<p>&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x7684;&#x57FA;&#x672C;&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li><strong>&#x4E8B;&#x4EF6;&#x6CE8;&#x518C;</strong>&#xFF1A;<ul>
+<li>&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x6CE8;&#x518C;&#x9700;&#x8981;&#x5904;&#x7406;&#x7684;&#x4E8B;&#x4EF6;&#x548C;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;&#x4E8B;&#x4EF6;&#x53EF;&#x4EE5;&#x662F; I/O &#x64CD;&#x4F5C;&#xFF08;&#x5982;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x3001;&#x6587;&#x4EF6;&#x8BFB;&#x53D6;&#xFF09;&#x6216;&#x5B9A;&#x65F6;&#x5668;&#xFF08;&#x5982;&#x5EF6;&#x8FDF;&#x4EFB;&#x52A1;&#xFF09;&#x3002;</li>
+</ul>
+</li>
+<li><strong>&#x4E8B;&#x4EF6;&#x7B49;&#x5F85;</strong>&#xFF1A;<ul>
+<li>&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x8FDB;&#x5165;&#x7B49;&#x5F85;&#x72B6;&#x6001;&#xFF0C;&#x7B49;&#x5F85;&#x4E8B;&#x4EF6;&#x7684;&#x53D1;&#x751F;&#x3002;</li>
+</ul>
+</li>
+<li><strong>&#x4E8B;&#x4EF6;&#x5904;&#x7406;</strong>&#xFF1A;<ul>
+<li>&#x4E00;&#x65E6;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#xFF0C;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4F1A;&#x8C03;&#x7528;&#x76F8;&#x5E94;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6765;&#x5904;&#x7406;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x3002;</li>
+</ul>
+</li>
+<li><strong>&#x7EE7;&#x7EED;&#x5FAA;&#x73AF;</strong>&#xFF1A;<ul>
+<li>&#x5904;&#x7406;&#x5B8C;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x540E;&#xFF0C;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4F1A;&#x7EE7;&#x7EED;&#x7B49;&#x5F85;&#x548C;&#x5904;&#x7406;&#x4E0B;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#xFF0C;&#x76F4;&#x5230;&#x6240;&#x6709;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x5B8C;&#x6BD5;&#x6216;&#x7A0B;&#x5E8F;&#x7EC8;&#x6B62;&#x3002;</li>
+</ul>
+</li>
+</ol>
+<h3 id="python-&#x4E2D;&#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;">Python &#x4E2D;&#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;</h3>
+<p>&#x5728; Python &#x4E2D;&#xFF0C;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x901A;&#x5E38;&#x7531; <code>asyncio</code> &#x5E93;&#x63D0;&#x4F9B;&#x3002;<code>asyncio</code> &#x662F; Python &#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x7528;&#x4E8E;&#x7F16;&#x5199;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x548C;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x7BA1;&#x7406;&#x3002;</p>
+<h4 id="&#x793A;&#x4F8B;&#x4EE3;&#x7801;">&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h4>
+<p>&#x4EE5;&#x4E0B;&#x662F;&#x4E00;&#x4E2A;&#x4F7F;&#x7528; <code>asyncio</code> &#x521B;&#x5EFA;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x7684;&#x7B80;&#x5355;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> asyncio
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_coroutine</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">&quot;Start coroutine&quot;</span>)
+    <span class="hljs-keyword">await</span> asyncio.sleep(<span class="hljs-number">1</span>)  <span class="hljs-comment"># &#x5F02;&#x6B65;&#x7B49;&#x5F85; 1 &#x79D2;</span>
+    print(<span class="hljs-string">&quot;End coroutine&quot;</span>)
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">&quot;Start main&quot;</span>)
+    <span class="hljs-keyword">await</span> my_coroutine()  <span class="hljs-comment"># &#x8C03;&#x7528;&#x534F;&#x7A0B;</span>
+    print(<span class="hljs-string">&quot;End main&quot;</span>)
+
+<span class="hljs-comment"># &#x8FD0;&#x884C;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;</span>
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&quot;__main__&quot;</span>:
+    asyncio.run(main())
+</code></pre>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x793A;&#x4F8B;&#x4E2D;&#xFF1A;</p>
+<ul>
+<li><code>my_coroutine</code> &#x662F;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x534F;&#x7A0B;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x4F7F;&#x7528; <code>await</code> &#x5173;&#x952E;&#x5B57;&#x7B49;&#x5F85; <code>asyncio.sleep(1)</code>&#xFF0C;&#x6A21;&#x62DF;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x3002;</li>
+<li><code>main</code> &#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x534F;&#x7A0B;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x8C03;&#x7528; <code>my_coroutine</code> &#x5E76;&#x7B49;&#x5F85;&#x5176;&#x5B8C;&#x6210;&#x3002;</li>
+<li><code>asyncio.run(main())</code> &#x542F;&#x52A8;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x5E76;&#x8FD0;&#x884C; <code>main</code> &#x534F;&#x7A0B;&#x3002;</li>
+</ul>
+<h3 id="&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x7684;&#x6838;&#x5FC3;&#x529F;&#x80FD;">&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x7684;&#x6838;&#x5FC3;&#x529F;&#x80FD;</h3>
+<ol>
+<li><strong>&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;</strong>&#xFF1A;<ul>
+<li>&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x53EF;&#x4EE5;&#x8C03;&#x5EA6;&#x591A;&#x4E2A;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#xFF08;&#x534F;&#x7A0B;&#xFF09;&#xFF0C;&#x4F7F;&#x5F97;&#x5B83;&#x4EEC;&#x53EF;&#x4EE5;&#x5E76;&#x53D1;&#x6267;&#x884C;&#x3002;</li>
+</ul>
+</li>
+<li><strong>&#x5F02;&#x6B65; I/O</strong>&#xFF1A;<ul>
+<li>&#x5904;&#x7406;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x3001;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;&#x7B49; I/O &#x64CD;&#x4F5C;&#x65F6;&#x4E0D;&#x4F1A;&#x963B;&#x585E;&#x4E3B;&#x7EBF;&#x7A0B;&#x3002;</li>
+</ul>
+</li>
+<li><strong>&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;</strong>&#xFF1A;<ul>
+<li>&#x652F;&#x6301;&#x8BBE;&#x7F6E;&#x5EF6;&#x8FDF;&#x4EFB;&#x52A1;&#x6216;&#x5468;&#x671F;&#x6027;&#x4EFB;&#x52A1;&#xFF0C;&#x5982;&#x5B9A;&#x65F6;&#x5668;&#x3002;</li>
+</ul>
+</li>
+<li><strong>&#x534F;&#x7A0B;&#x7BA1;&#x7406;</strong>&#xFF1A;<ul>
+<li>&#x7BA1;&#x7406;&#x548C;&#x534F;&#x8C03;&#x591A;&#x4E2A;&#x534F;&#x7A0B;&#x7684;&#x6267;&#x884C;&#x3002;</li>
+</ul>
+</li>
+</ol>
+<h3 id="&#x4F7F;&#x7528;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x7684;&#x573A;&#x666F;">&#x4F7F;&#x7528;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x7684;&#x573A;&#x666F;</h3>
+<ul>
+<li><strong>&#x7F51;&#x7EDC;&#x7F16;&#x7A0B;</strong>&#xFF1A;&#x5904;&#x7406;&#x5F02;&#x6B65;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#xFF0C;&#x5982; HTTP &#x8BF7;&#x6C42;&#x3001;WebSocket &#x8FDE;&#x63A5;&#x3002;</li>
+<li><strong>&#x5E76;&#x53D1;&#x4EFB;&#x52A1;</strong>&#xFF1A;&#x540C;&#x65F6;&#x6267;&#x884C;&#x591A;&#x4E2A;&#x4EFB;&#x52A1;&#xFF0C;&#x5982;&#x722C;&#x866B;&#x7A0B;&#x5E8F;&#x3001;&#x6570;&#x636E;&#x5904;&#x7406;&#x3002;</li>
+<li><strong>&#x5B9E;&#x65F6;&#x5E94;&#x7528;</strong>&#xFF1A;&#x5982;&#x804A;&#x5929;&#x5E94;&#x7528;&#x3001;&#x6E38;&#x620F;&#x670D;&#x52A1;&#x5668;&#x9700;&#x8981;&#x5904;&#x7406;&#x5B9E;&#x65F6;&#x6D88;&#x606F;&#x548C;&#x4E8B;&#x4EF6;&#x3002;</li>
+</ul>
+<h3 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h3>
+<p>&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x662F;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x4E2D;&#x7684;&#x6838;&#x5FC3;&#x673A;&#x5236;&#xFF0C;&#x5B83;&#x901A;&#x8FC7;&#x4E0D;&#x65AD;&#x68C0;&#x67E5;&#x548C;&#x8C03;&#x5EA6;&#x4E8B;&#x4EF6;&#xFF0C;&#x5141;&#x8BB8;&#x5355;&#x7EBF;&#x7A0B;&#x7A0B;&#x5E8F;&#x9AD8;&#x6548;&#x5730;&#x5904;&#x7406;&#x591A;&#x4E2A;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x3002;&#x5728; Python &#x4E2D;&#xFF0C;<code>asyncio</code> &#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x4F7F;&#x5F97;&#x7F16;&#x5199;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x53D8;&#x5F97;&#x66F4;&#x52A0;&#x65B9;&#x4FBF;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="Python-BigApplication.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Python BigApplication">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Python EventLoop","level":"4.1.1","depth":2,"next":{"title":"Python BigApplication","level":"4.1.2","depth":2,"path":"python/Python-BigApplication.md","ref":"python/Python-BigApplication.md","articles":[]},"previous":{"title":"Python","level":"4.1","depth":1,"ref":"","articles":[{"title":"Python EventLoop","level":"4.1.1","depth":2,"path":"python/Python-EventLoop.md","ref":"python/Python-EventLoop.md","articles":[]},{"title":"Python BigApplication","level":"4.1.2","depth":2,"path":"python/Python-BigApplication.md","ref":"python/Python-BigApplication.md","articles":[]},{"title":"Python Decorator","level":"4.1.3","depth":2,"path":"python/Python-Decorator.md","ref":"python/Python-Decorator.md","articles":[]},{"title":"Reload Pandas方法","level":"4.1.4","depth":2,"path":"python/reload-pandas方法.md","ref":"python/reload-pandas方法.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","chapter-fold","expandable-chapters","splitter","hide-element","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"python/Python-EventLoop.md","mtime":"2024-08-21T06:10:25.484Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-08-30T10:08:22.924Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

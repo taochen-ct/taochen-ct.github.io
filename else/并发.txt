@@ -1,0 +1,113 @@
+源码：https://github.com/peiss/ant-learn-python-concurrent
+
+·CPU密集型计算：
+
+	CPU-bround，也叫计算密集型，是指I/O在短时间内就能完成，CPU需要大量的计算和处理，特点是CPU占用率相当高
+	例如：解压缩，加密解压，正则表达式搜索
+
+·IO密集型计算：
+
+	I/O-bound,在系统运作大部分的状况是CPU在等I/O的读写操作，CPU占用率较低
+	例如：文件处理程序，网络爬虫程序，读写数据库程序
+
+·多进程，多线程，多协程对比：一个进程中可以启动N个线程，一个线程可以启动N个协程
+
+	·多进程Process：
+		multiprocessing模块
+			优点：可以利用多核CPU并行运算
+			缺点：占用资源多，可启动的数目比线程少
+		适用于：CPU密集型计算
+				
+	·多线程Thread：
+		treading模块
+			优点：
+				相比进程：更轻量，占用资源少
+			缺点：
+				相比进程：多线程只能并发执行，不能利用多CPU（GIL）
+				相比协程：启动数目有限制，占用内存资源，有线程切换的开销
+		适用于：IO密集型计算，同时运行的任务数目要求不多
+
+	·多协程Coroutine：
+		asynic模块
+			优点：内存开销最少，启动协程数量最多
+			缺点：支持的库有限制（aiohttp/requests），代码实现复杂
+		适用于：IO密集型计算，需要超多任务运行，但有现成库支持的场景
+
+·GIL（全局解释器）：
+
+	python速度慢的两大原因：
+		动态类型语言，边解释边执行
+		GIL，无法利用多核CPU并发执行
+
+	GIL：
+		计算机程序设计语言解释器用于同步线程的一种机制，使得任何时刻仅有一个线程在执		行，即便在多核处理器上，使用GIL的解释器也只允许同一时间执行一个线程
+
+	为什么会有GIL：
+		在设计之初为了解决数据完整性和状态同步问题，破坏内存			
+
+	怎么规避GIL带来的限制：
+		多线程threadig机制依然有用，用于IO密集型计算
+			在IO期间，线程会释放GIL，实现CPU和IO的并行，因此多线程用于IO密集型运算			依然可以大幅度提升速度，用于CPU密集型计算时只会拖慢速度
+		
+		使用multprocessing的多进程机制实现并行运算，利用多核CPU的优势
+
+多组件的Pipline技术架构
+		Pipline Processor
+
+生产者消费者爬虫
+		线程组
+
+多线程数据通信
+		queue.Queue	
+
+线程安全	
+		某个函数，函数库在多线程环境中被调用时，能够正确的处理多个线程之间的共享变量，使程序正确完成，由于线程的执行会随时发生切换，造成不可预料的结果，出现线程不	安全
+
+lock用于线程安全
+	try-finally模式
+	with模式
+
+线程池：
+	新建线程系统需要分配资源，终止线程系统需要回收资源，如果可以重用线程，则可以减去新建和终止的开销
+
+	优点：
+		提升性能，减去大量新建终止线程的开销，重用了线程资源
+		适用场景，适合处理突发性大量请求或需要大量线程完成任务，但实际任务处理时间较短
+		防御功能，有效避免系统因为线程创建过多，导致系统负荷过大响应变慢等问题
+		代码优势，使用线程池的语法比自己新建线程执行线程更加简洁
+	
+ThreadPoolExecutor：
+	from concurrent.futures import ThreadPoolExecutor,as_completed
+
+	方法一，map函数
+		with ThreadPoolExecutor() as pool:
+			results = pool.map(craw,urls)
+			for result in results:
+				print(result)
+	
+	方法二，future模式
+		with ThreadPoolExecutor() as pool:
+			futures = [pool.submit(craw,url) for url in urls]
+			for future in futures:
+				print(future.result())
+			for future in as_completed(futures):
+				print(future.result())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
