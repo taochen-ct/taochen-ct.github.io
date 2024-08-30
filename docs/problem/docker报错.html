@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Docker · GitBook</title>
+        <title>Docker报错 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,10 +69,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="echarts封装.html" />
+    <link rel="next" href="node安装报错.html" />
     
-    
-    <link rel="prev" href="Nginx常用配置.html" />
     
 
     </head>
@@ -128,9 +126,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="Nginx常用配置.html">
+        <li class="chapter " data-level="1.2.1" data-path="../else/Nginx常用配置.html">
             
-                <a href="Nginx常用配置.html">
+                <a href="../else/Nginx常用配置.html">
             
                     
                     Nginx常用配置
@@ -141,9 +139,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.2" data-path="docker.html">
+        <li class="chapter " data-level="1.2.2" data-path="../else/docker.html">
             
-                <a href="docker.html">
+                <a href="../else/docker.html">
             
                     
                     Docker
@@ -154,9 +152,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="echarts封装.html">
+        <li class="chapter " data-level="1.2.3" data-path="../else/echarts封装.html">
             
-                <a href="echarts封装.html">
+                <a href="../else/echarts封装.html">
             
                     
                     Echarts封装
@@ -167,9 +165,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="git笔记.html">
+        <li class="chapter " data-level="1.2.4" data-path="../else/git笔记.html">
             
-                <a href="git笔记.html">
+                <a href="../else/git笔记.html">
             
                     
                     Git笔记
@@ -180,9 +178,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="数据结构与算法.html">
+        <li class="chapter " data-level="1.2.5" data-path="../else/数据结构与算法.html">
             
-                <a href="数据结构与算法.html">
+                <a href="../else/数据结构与算法.html">
             
                     
                     数据结构与算法
@@ -193,9 +191,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.6" data-path="浏览器事件循环.html">
+        <li class="chapter " data-level="1.2.6" data-path="../else/浏览器事件循环.html">
             
-                <a href="浏览器事件循环.html">
+                <a href="../else/浏览器事件循环.html">
             
                     
                     浏览器事件循环
@@ -206,9 +204,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.7" data-path="浏览器工作原理.html">
+        <li class="chapter " data-level="1.2.7" data-path="../else/浏览器工作原理.html">
             
-                <a href="浏览器工作原理.html">
+                <a href="../else/浏览器工作原理.html">
             
                     
                     浏览器工作原理
@@ -265,9 +263,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.1.1" data-path="../problem/docker报错.html">
+        <li class="chapter active" data-level="3.1.1" data-path="docker报错.html">
             
-                <a href="../problem/docker报错.html">
+                <a href="docker报错.html">
             
                     
                     Docker报错
@@ -278,9 +276,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.1.2" data-path="../problem/node安装报错.html">
+        <li class="chapter " data-level="3.1.2" data-path="node安装报错.html">
             
-                <a href="../problem/node安装报错.html">
+                <a href="node安装报错.html">
             
                     
                     Node安装报错
@@ -469,7 +467,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Docker</a>
+        <a href=".." >Docker报错</a>
     </h1>
 </div>
 
@@ -484,77 +482,25 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <ul>
-<li><p>Nginx </p>
-<pre><code>docker run -p 8080:80 --name nginx -v /home/nginx/conf/nginx.conf:/etc/nginx/nginx.conf -v /home/nginx/conf/conf.d:/etc/nginx/conf.d -v /home/nginx/log:/var/log/nginx -v /home/nginx/html:/user/share/nginx/html -d nginx
-</code></pre></li>
-<li><p>Jenkins </p>
-<pre><code>docker run -d -uroot -p 9095:8080 -p 50000:50000 --name jenkins -v /home/jenkins_home:/var/jenkins_home -v /etc/localtime:/etc/localtime jenkins/jenkins
-</code></pre></li>
-<li><p>Mysql </p>
-<pre><code>docker run \
--p 3306:3306 \
---name mysql \
---privileged=true \
---restart unless-stopped \
--v /mnt/sda1/mysql8.0.20/mysql:/etc/mysql \
--v /mnt/sda1/mysql8.0.20/logs:/logs \
--v /mnt/sda1/mysql8.0.20/data:/var/lib/mysql \
--v /etc/localtime:/etc/localtime \
--e MYSQL_ROOT_PASSWORD=123456 \
--d
-</code></pre></li>
-<li><p>Minio </p>
-<pre><code>docker mino
-docker run -p 9000:9000 -p 9090:9090      
---net=host   --name minio     
--d  --restart=always     
--e &quot;MINIO_ACCESS_KEY=minioadmin&quot;  
--e &quot;MINIO_SECRET_KEY=minioadmin&quot;     
--v /root/minio/data:/data      
--v /root/minio/config:/root/.minio      
-minio/minio server      
-/data --console-address &quot;:9090&quot; -address &quot;:9000&quot;
-</code></pre></li>
-<li><p>Rabbit MQ</p>
-<pre><code>docker rabbitmq
-&#x955C;&#x50CF;
-docker pull rabbitmq:management
-&#x521B;&#x5EFA;&#x6570;&#x636E;&#x6301;&#x4E45;&#x5377;
-docker volume create rabbitmq-home
-&#x521B;&#x5EFA;&#x8FD0;&#x884C;&#x5BB9;&#x5668;
-docker run -id --name=rabbitmq -v rabbitmq-home:/var/lib/rabbitmq \
--p 15672:15672 -p 5672:5672 \
--e RABBITMQ_DEFAULT_USER=rabbitmq \
--e RABBITMQ_DEFAULT_PASS=123456 rabbitmq:management
-</code></pre></li>
-<li><p>Redis </p>
-<pre><code>docker run -p 6379:6379 --name redis -v /home/redis/redis.conf:/etc/redis/redis.conf -v /home/redis/data:/data -d redis redis-server /etc/redis/redis.conf --appendonly yes
-</code></pre></li>
-<li><p>Gitlab</p>
-<p>```
-docker run --detach    --hostname  gitlab    --publish 10443:443     --publish  17080:80     --publish  12222:22    --privileged=true     --name gitlab    --restart always    --volume /d/gitlab/config:/etc/gitlab    --volume /d/gitlab/logs:/var/log/gitlab    --volume /d/gitlab/data:/var/opt/gitlab    --volume  /d/gitlab/logs/reconfigure:/var/log/gitlab/reconfigure    gitlab/gitlab-ce</p>
-</li>
-</ul>
-<p>  vim /mnt/d/gitlab/config/gitlab.rb</p>
-<h1 id="&#x914D;&#x7F6E;http&#x534F;&#x8BAE;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x8BBF;&#x95EE;&#x5730;&#x5740;&#x4E0D;&#x52A0;&#x7AEF;&#x53E3;&#x53F7;&#x9ED8;&#x8BA4;&#x4E3A;80">&#x914D;&#x7F6E;http&#x534F;&#x8BAE;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x8BBF;&#x95EE;&#x5730;&#x5740;,&#x4E0D;&#x52A0;&#x7AEF;&#x53E3;&#x53F7;&#x9ED8;&#x8BA4;&#x4E3A;80</h1>
-<p>  external_url &apos;<a href="http://192.168.1.3" target="_blank">http://192.168.1.3</a>&apos;</p>
-<h1 id="&#x914D;&#x7F6E;ssh&#x534F;&#x8BAE;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x8BBF;&#x95EE;&#x5730;&#x5740;&#x548C;&#x7AEF;&#x53E3;">&#x914D;&#x7F6E;ssh&#x534F;&#x8BAE;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x8BBF;&#x95EE;&#x5730;&#x5740;&#x548C;&#x7AEF;&#x53E3;</h1>
-<p>  gitlab_rails[&apos;gitlab_ssh_host&apos;] = &apos;192.168.1.3&apos;</p>
-<h1 id="&#x6B64;&#x7AEF;&#x53E3;&#x662F;run&#x65F6;22&#x7AEF;&#x53E3;&#x6620;&#x5C04;&#x7684;2222&#x7AEF;&#x53E3;">&#x6B64;&#x7AEF;&#x53E3;&#x662F;run&#x65F6;22&#x7AEF;&#x53E3;&#x6620;&#x5C04;&#x7684;2222&#x7AEF;&#x53E3;</h1>
-<p>  gitlab_rails[&apos;gitlab_shell_ssh_port&apos;] = 12222 </p>
-<pre><code>
+                                <h3 id="1-docker0-iptables-no-chaintargetmatch-by-that-name&#x95EE;&#x9898;&#x89E3;&#x51B3;">1. docker0: iptables: No chain/target/match by that name&#x95EE;&#x9898;&#x89E3;&#x51B3;</h3>
+<p>&#x95EE;&#x9898;&#x539F;&#x56E0;&#xFF1A;&#x91CD;&#x65B0;&#x4FEE;&#x6539;&#x9632;&#x706B;&#x5899;&#xFF0C;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#x9632;&#x706B;&#x5899;&#x5BFC;&#x81F4;iptable&#x51FA;&#x95EE;&#x9898;</p>
+<p>&#x6392;&#x67E5;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># check iptable</span>
+iptables -L -n
 
-- &#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;
-
-  ```shell
-  docker inspect --format=&apos;\{\{.LogPath\}\}&apos; &lt;&#x5BB9;&#x5668;ID&gt;
-</code></pre><ul>
-<li><p>&#x6E05;&#x7A7A;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;</p>
-<pre><code class="lang-ruby">echo <span class="hljs-string">&quot;&quot;</span> &gt; $(docker inspect --format=<span class="hljs-string">&apos;\{\{\.LogPath\}\}&apos;</span> &lt;&#x5BB9;&#x5668;ID&gt;)
+<span class="hljs-comment"># is br_netfilter normal</span>
+lsmod | grep br_netfilter
 </code></pre>
-</li>
-</ul>
+<p>&#x95EE;&#x9898;&#x89E3;&#x51B3;&#xFF1A;</p>
+<p>&#x91CD;&#x65B0;&#x542F;&#x52A8;docker&#x670D;&#x52A1;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># method 1 (common)</span>
+systemctl restart docker
+
+<span class="hljs-comment"># method 2 (offline or run dockerd by nohup)</span>
+ps -ef | grep dockerd
+<span class="hljs-built_in">kill</span> -9 &lt;PID&gt;
+nohup dockerd &gt; dockerd.txt 2&gt;&amp;1 &amp;
+</code></pre>
 
                                 
                                 </section>
@@ -582,12 +528,8 @@ docker run --detach    --hostname  gitlab    --publish 10443:443     --publish  
 
             
                 
-                <a href="Nginx常用配置.html" class="navigation navigation-prev " aria-label="Previous page: Nginx常用配置">
-                    <i class="fa fa-angle-left"></i>
-                </a>
                 
-                
-                <a href="echarts封装.html" class="navigation navigation-next " aria-label="Next page: Echarts封装">
+                <a href="node安装报错.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Node安装报错">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -598,7 +540,7 @@ docker run --detach    --hostname  gitlab    --publish 10443:443     --publish  
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Docker","level":"1.2.2","depth":2,"next":{"title":"Echarts封装","level":"1.2.3","depth":2,"path":"else/echarts封装.md","ref":"else/echarts封装.md","articles":[]},"previous":{"title":"Nginx常用配置","level":"1.2.1","depth":2,"path":"else/Nginx常用配置.md","ref":"else/Nginx常用配置.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","chapter-fold","expandable-chapters","splitter","hide-element","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"else/docker.md","mtime":"2024-08-30T09:35:41.727Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-08-30T10:08:22.924Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Docker报错","level":"3.1.1","depth":2,"next":{"title":"Node安装报错","level":"3.1.2","depth":2,"path":"problem/node安装报错.md","ref":"problem/node安装报错.md","articles":[]},"previous":{"title":"Problem","level":"3.1","depth":1,"ref":"","articles":[{"title":"Docker报错","level":"3.1.1","depth":2,"path":"problem/docker报错.md","ref":"problem/docker报错.md","articles":[]},{"title":"Node安装报错","level":"3.1.2","depth":2,"path":"problem/node安装报错.md","ref":"problem/node安装报错.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","chapter-fold","expandable-chapters","splitter","hide-element"],"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"problem/docker报错.md","mtime":"2024-08-30T09:31:27.892Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-08-30T10:32:38.893Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -629,10 +571,6 @@ docker run --detach    --hostname  gitlab    --publish 10443:443     --publish  
     
         
         <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

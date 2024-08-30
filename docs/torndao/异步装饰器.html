@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Node安装报错 · GitBook</title>
+        <title>异步装饰器 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,8 +69,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="继承Application.html" />
     
-    <link rel="prev" href="docker报错.html" />
+    
+    <link rel="prev" href="基本用法.html" />
     
 
     </head>
@@ -263,9 +265,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.1.1" data-path="docker报错.html">
+        <li class="chapter " data-level="3.1.1" data-path="../problem/docker报错.html">
             
-                <a href="docker报错.html">
+                <a href="../problem/docker报错.html">
             
                     
                     Docker报错
@@ -276,9 +278,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.1.2" data-path="node安装报错.html">
+        <li class="chapter " data-level="3.1.2" data-path="../problem/node安装报错.html">
             
-                <a href="node安装报错.html">
+                <a href="../problem/node安装报错.html">
             
                     
                     Node安装报错
@@ -393,9 +395,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1.1" data-path="../torndao/基本用法.html">
+        <li class="chapter " data-level="5.1.1" data-path="基本用法.html">
             
-                <a href="../torndao/基本用法.html">
+                <a href="基本用法.html">
             
                     
                     基本用法
@@ -406,9 +408,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.2" data-path="../torndao/异步装饰器.html">
+        <li class="chapter active" data-level="5.1.2" data-path="异步装饰器.html">
             
-                <a href="../torndao/异步装饰器.html">
+                <a href="异步装饰器.html">
             
                     
                     异步装饰器
@@ -419,9 +421,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.1.3" data-path="../torndao/继承Application.html">
+        <li class="chapter " data-level="5.1.3" data-path="继承Application.html">
             
-                <a href="../torndao/继承Application.html">
+                <a href="继承Application.html">
             
                     
                     继承Application
@@ -467,7 +469,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Node安装报错</a>
+        <a href=".." >异步装饰器</a>
     </h1>
 </div>
 
@@ -482,9 +484,63 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="1-nodejs&#x5B89;&#x88C5;gitbook&#x62A5;&#x9519;">1. nodejs&#x5B89;&#x88C5;gitbook&#x62A5;&#x9519;</h3>
-<p>&#x95EE;&#x9898;&#x539F;&#x56E0;&#xFF1A;gitbook-cli&#x5F15;&#x7528;&#x4E86;&#x65E7;&#x7248;&#x7684;graceful-fs&#xFF0C;&#x5BFC;&#x81F4;&#x51FA;&#x73B0;&#x95EE;&#x9898;&#xFF0C;gitbook&#x4E0E;nodejs&#x7248;&#x672C;&#x4E0D;&#x5339;&#x914D;</p>
-<p>&#x95EE;&#x9898;&#x89E3;&#x51B3;&#xFF1A;nodejs &#x7248;&#x672C;&#x8FC7;&#x9AD8;&#xFF0C;&#x4E0B;&#x8F7D;nvm&#x5B89;&#x88C5;&#x4E00;&#x4E2A;10.X&#x7684;node</p>
+                                <p>tornado&#x5F02;&#x6B65;&#x6846;&#x67B6;&#xFF0C;&#x652F;&#x6301;async/await&#x8BED;&#x6CD5;&#xFF0C;<code>@coroutine</code> &#x548C; <code>@run_on_executor</code> &#x662F; Tornado &#x6846;&#x67B6;&#x4E2D;&#x7684;&#x4E24;&#x4E2A;&#x91CD;&#x8981;&#x88C5;&#x9970;&#x5668;&#xFF0C;&#x5206;&#x522B;&#x7528;&#x4E8E;&#x4E0D;&#x540C;&#x7684;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#x573A;&#x666F;&#x3002;</p>
+<h3 id="1-coroutine">1. <code>@coroutine</code></h3>
+<h4 id="&#x4F5C;&#x7528;">&#x4F5C;&#x7528;</h4>
+<ul>
+<li><code>@coroutine</code> &#x88C5;&#x9970;&#x5668;&#x7528;&#x4E8E;&#x5C06;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6807;&#x8BB0;&#x4E3A; Tornado &#x7684;&#x5F02;&#x6B65;&#x534F;&#x7A0B;&#x51FD;&#x6570;&#x3002;&#x8FD9;&#x79CD;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>yield</code> &#x5173;&#x952E;&#x5B57;&#x6765;&#x7B49;&#x5F85;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x7684;&#x5B8C;&#x6210;&#xFF0C;&#x4ECE;&#x800C;&#x907F;&#x514D;&#x963B;&#x585E;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x3002;</li>
+</ul>
+<h4 id="&#x4F7F;&#x7528;&#x573A;&#x666F;">&#x4F7F;&#x7528;&#x573A;&#x666F;</h4>
+<ul>
+<li>&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x9700;&#x8981;&#x5728; Tornado &#x4E2D;&#x6267;&#x884C;&#x5F02;&#x6B65; I/O &#x64CD;&#x4F5C;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x4F8B;&#x5982;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x3001;&#x6570;&#x636E;&#x5E93;&#x67E5;&#x8BE2;&#x7B49;&#x3002;</li>
+<li>&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;&#x534F;&#x7A0B;&#x5185;&#x90E8;&#x4F7F;&#x7528; <code>yield</code> &#x6765;&#x7B49;&#x5F85;&#x5176;&#x4ED6;&#x534F;&#x7A0B;&#x6216;&#x5F02;&#x6B65;&#x51FD;&#x6570;&#x7684;&#x7ED3;&#x679C;&#x3002;</li>
+</ul>
+<h4 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h4>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> tornado.gen <span class="hljs-keyword">import</span> coroutine
+<span class="hljs-keyword">from</span> tornado.httpclient <span class="hljs-keyword">import</span> AsyncHTTPClient
+
+<span class="hljs-meta">@coroutine</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fetch_data</span><span class="hljs-params">(url)</span>:</span>
+    http_client = AsyncHTTPClient()
+    response = <span class="hljs-keyword">yield</span> http_client.fetch(url)
+    print(response.body)
+</code></pre>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;<code>fetch_data</code> &#x662F;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x534F;&#x7A0B;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x4F7F;&#x7528; <code>yield</code> &#x7B49;&#x5F85; HTTP &#x8BF7;&#x6C42;&#x7684;&#x7ED3;&#x679C;&#x3002;Tornado &#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x5728;&#x7B49;&#x5F85;&#x671F;&#x95F4;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x5904;&#x7406;&#x5176;&#x4ED6;&#x4E8B;&#x4EF6;&#x3002;</p>
+<h3 id="2-runonexecutor">2. <code>@run_on_executor</code></h3>
+<h4 id="&#x4F5C;&#x7528;">&#x4F5C;&#x7528;</h4>
+<ul>
+<li><code>@run_on_executor</code> &#x88C5;&#x9970;&#x5668;&#x7528;&#x4E8E;&#x5C06;&#x4E00;&#x4E2A;&#x540C;&#x6B65;&#x963B;&#x585E;&#x7684;&#x51FD;&#x6570;&#x653E;&#x5165;&#x7EBF;&#x7A0B;&#x6C60;&#x4E2D;&#x6267;&#x884C;&#xFF0C;&#x4ECE;&#x800C;&#x907F;&#x514D;&#x963B;&#x585E; Tornado &#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x3002;&#x4F7F;&#x7528;&#x6B64;&#x88C5;&#x9970;&#x5668;&#x7684;&#x51FD;&#x6570;&#x4F1A;&#x5728;&#x540E;&#x53F0;&#x7EBF;&#x7A0B;&#x6C60;&#x4E2D;&#x6267;&#x884C;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; <code>Future</code> &#x5BF9;&#x8C61;&#x3002;</li>
+</ul>
+<h4 id="&#x4F7F;&#x7528;&#x573A;&#x666F;">&#x4F7F;&#x7528;&#x573A;&#x666F;</h4>
+<ul>
+<li>&#x9002;&#x7528;&#x4E8E;&#x90A3;&#x4E9B;&#x672C;&#x8EAB;&#x662F;&#x540C;&#x6B65;&#x7684;&#x3001;&#x8017;&#x65F6;&#x7684;&#x963B;&#x585E;&#x64CD;&#x4F5C;&#xFF0C;&#x6BD4;&#x5982;&#x8BA1;&#x7B97;&#x5BC6;&#x96C6;&#x578B;&#x4EFB;&#x52A1;&#x3001;&#x6587;&#x4EF6; I/O &#x7B49;&#x3002;&#x8FD9;&#x7C7B;&#x64CD;&#x4F5C;&#x5982;&#x679C;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#x6267;&#x884C;&#xFF0C;&#x4F1A;&#x963B;&#x585E;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#xFF0C;&#x5F71;&#x54CD;&#x5176;&#x4ED6;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x7684;&#x8FD0;&#x884C;&#x3002;</li>
+<li>&#x4F7F;&#x7528; <code>@run_on_executor</code> &#x53EF;&#x4EE5;&#x8BA9;&#x8FD9;&#x4E9B;&#x64CD;&#x4F5C;&#x5F02;&#x6B65;&#x6267;&#x884C;&#xFF0C;&#x4ECE;&#x800C;&#x4FDD;&#x6301;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x7684;&#x6D41;&#x7545;&#x6027;&#x3002;</li>
+</ul>
+<h4 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h4>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> tornado.concurrent <span class="hljs-keyword">import</span> run_on_executor
+<span class="hljs-keyword">from</span> concurrent.futures <span class="hljs-keyword">import</span> ThreadPoolExecutor
+<span class="hljs-keyword">import</span> time
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyHandler</span><span class="hljs-params">(tornado.web.RequestHandler)</span>:</span>
+    executor = ThreadPoolExecutor(max_workers=<span class="hljs-number">4</span>)
+
+<span class="hljs-meta">    @run_on_executor</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">long_running_task</span><span class="hljs-params">(self)</span>:</span>
+        time.sleep(<span class="hljs-number">5</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Task Complete&quot;</span>
+
+<span class="hljs-meta">    @tornado.gen.coroutine</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(self)</span>:</span>
+        result = <span class="hljs-keyword">yield</span> self.long_running_task()
+        self.write(result)
+</code></pre>
+<p>&#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;<code>long_running_task</code> &#x662F;&#x4E00;&#x4E2A;&#x963B;&#x585E;&#x7684;&#x4EFB;&#x52A1;&#xFF08;&#x6A21;&#x62DF;&#x4E86; 5 &#x79D2;&#x7684;&#x5EF6;&#x8FDF;&#xFF09;&#xFF0C;&#x4F46;&#x56E0;&#x4E3A;&#x5B83;&#x88AB; <code>@run_on_executor</code> &#x88C5;&#x9970;&#xFF0C;&#x6240;&#x4EE5;&#x4F1A;&#x5728;&#x540E;&#x53F0;&#x7EBF;&#x7A0B;&#x6C60;&#x4E2D;&#x6267;&#x884C;&#xFF0C;&#x907F;&#x514D;&#x963B;&#x585E;&#x4E3B;&#x7EBF;&#x7A0B;&#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x3002;</p>
+<h3 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h3>
+<ul>
+<li><strong><code>@coroutine</code></strong>&#xFF1A;&#x5C06;&#x51FD;&#x6570;&#x6807;&#x8BB0;&#x4E3A;&#x5F02;&#x6B65;&#x534F;&#x7A0B;&#xFF0C;&#x9002;&#x7528;&#x4E8E;&#x5F02;&#x6B65; I/O &#x64CD;&#x4F5C;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>yield</code> &#x6765;&#x7B49;&#x5F85;&#x5F02;&#x6B65;&#x7ED3;&#x679C;&#x3002;&#x901A;&#x5E38;&#x4E0E; Tornado &#x7684;&#x5176;&#x4ED6;&#x5F02;&#x6B65;&#x51FD;&#x6570;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x3002;</li>
+<li><strong><code>@run_on_executor</code></strong>&#xFF1A;&#x7528;&#x4E8E;&#x5C06;&#x540C;&#x6B65;&#x963B;&#x585E;&#x64CD;&#x4F5C;&#x653E;&#x5165;&#x7EBF;&#x7A0B;&#x6C60;&#x6267;&#x884C;&#xFF0C;&#x9002;&#x7528;&#x4E8E;&#x963B;&#x585E;&#x7684;&#x3001;&#x8017;&#x65F6;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x786E;&#x4FDD;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4E0D;&#x88AB;&#x963B;&#x585E;&#x3002;</li>
+</ul>
+<p>&#x8FD9;&#x4E24;&#x4E2A;&#x88C5;&#x9970;&#x5668;&#x7ED3;&#x5408;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x5728; Tornado &#x4E2D;&#x5B9E;&#x73B0;&#x590D;&#x6742;&#x7684;&#x5F02;&#x6B65;&#x548C;&#x5E76;&#x53D1;&#x903B;&#x8F91;&#x3002;</p>
 
                                 
                                 </section>
@@ -512,10 +568,14 @@
 
             
                 
-                <a href="docker报错.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Docker报错">
+                <a href="基本用法.html" class="navigation navigation-prev " aria-label="Previous page: 基本用法">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="继承Application.html" class="navigation navigation-next " aria-label="Next page: 继承Application">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -524,7 +584,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Node安装报错","level":"3.1.2","depth":2,"next":{"title":"Python","level":"4.1","depth":1,"ref":"","articles":[{"title":"Python EventLoop","level":"4.1.1","depth":2,"path":"python/Python-EventLoop.md","ref":"python/Python-EventLoop.md","articles":[]},{"title":"Python BigApplication","level":"4.1.2","depth":2,"path":"python/Python-BigApplication.md","ref":"python/Python-BigApplication.md","articles":[]},{"title":"Python Decorator","level":"4.1.3","depth":2,"path":"python/Python-Decorator.md","ref":"python/Python-Decorator.md","articles":[]},{"title":"Reload Pandas方法","level":"4.1.4","depth":2,"path":"python/reload-pandas方法.md","ref":"python/reload-pandas方法.md","articles":[]}]},"previous":{"title":"Docker报错","level":"3.1.1","depth":2,"path":"problem/docker报错.md","ref":"problem/docker报错.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","chapter-fold","expandable-chapters","splitter","hide-element","livereload"],"pluginsConfig":{"chapter-fold":{},"livereload":{},"splitter":{},"search-pro":{},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"problem/node安装报错.md","mtime":"2024-08-30T09:32:12.213Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-08-30T10:08:22.924Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"异步装饰器","level":"5.1.2","depth":2,"next":{"title":"继承Application","level":"5.1.3","depth":2,"path":"torndao/继承Application.md","ref":"torndao/继承Application.md","articles":[]},"previous":{"title":"基本用法","level":"5.1.1","depth":2,"path":"torndao/基本用法.md","ref":"torndao/基本用法.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","chapter-fold","expandable-chapters","splitter","hide-element"],"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"torndao/异步装饰器.md","mtime":"2024-08-21T06:14:11.362Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-08-30T10:32:38.893Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -555,10 +615,6 @@
     
         
         <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
