@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '10.18.2'
+          node-version: 'v10.18.2'
 
       - name: Install GitBook CLI
         run: npm install -g gitbook-cli
