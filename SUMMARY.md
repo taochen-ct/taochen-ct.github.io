@@ -1,6 +1,4 @@
-* [Intorduction](README.md)
-
-* Else
+ * Else
 
     * [Nginx常用配置](else/Nginx常用配置.md)
     * [Docker](else/docker.md)
