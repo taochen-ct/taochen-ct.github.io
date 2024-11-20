@@ -163,3 +163,5 @@ cython_debug/
 
 node_modules/
 _book/
+
+.DS_Store/

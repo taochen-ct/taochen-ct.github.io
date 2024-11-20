@@ -14,5 +14,9 @@
                 ".gitbook-link"
             ]
         }
-    }
+    },
+    "structure" : {
+        "readme" : "SUMMARY.md"
+    },
+    "output": "docs"
 }
