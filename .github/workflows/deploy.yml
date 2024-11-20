@@ -27,8 +27,5 @@ jobs:
       - name: Build GitBook
         run: gitbook build ./ ./docs
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+      - name: Verify output
+        run: ls -la ./docs
