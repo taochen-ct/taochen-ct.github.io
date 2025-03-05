@@ -38,8 +38,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: npm # or pnpm / yarn
+          node-version: v20.18.0
+          cache: pnpm # or pnpm / yarn
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
