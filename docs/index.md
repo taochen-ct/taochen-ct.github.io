@@ -16,6 +16,9 @@ hero:
     - theme: alt
       text: Golang
       link: /golang
+    - theme: alt
+      text: Docker
+      link: /docker
 
 features:
   - title: Tech Insights

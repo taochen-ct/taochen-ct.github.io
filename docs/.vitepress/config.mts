@@ -45,7 +45,15 @@ export default defineConfig({
                     {text: 'Decorator', link: '/python/decorator'},
                     {text: 'Event Loop', link: '/python/eventloop'},
                 ],
-            }
+            },
+            {
+                text: 'Docker',
+                items: [
+                    {text: 'Overview', link: '/docker'},
+                    {text: 'Containers', link: '/docker/container'},
+                    {text: 'Error', link: '/docker/error'},
+                ]
+            },
         ],
 
         socialLinks: [
