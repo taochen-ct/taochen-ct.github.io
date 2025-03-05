@@ -35,3 +35,10 @@ features:
 
 [//]: # (- [Post 3: Writing Clean and Elegant Code]&#40;/blog/post-3&#41;)
 
+
+## Connect with Me
+
+- GitHub: https://github.com/taochen-ct
+
+[//]: # (- Twitter: [My Twitter]&#40;https://twitter.com/yourusername&#41;)
+- Email: taochen.c@outlook.com
