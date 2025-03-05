@@ -1,3 +1,9 @@
+---
+prev: false
+next:
+   text: 'Garbage Collection'
+   link: '/golang/garbage-collection'
+---
 
 
 # 基本语法

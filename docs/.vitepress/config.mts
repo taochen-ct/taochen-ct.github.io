@@ -5,6 +5,9 @@ export default defineConfig({
     title: "My Awesome Project",
     description: "A VitePress Site",
     themeConfig: {
+        search: {
+            provider: 'local'
+        },
         lastUpdated: {
             text: "Updated at",
             formatOptions: {
@@ -22,15 +25,17 @@ export default defineConfig({
             {
                 text: 'Golang',
                 items: [
-                    // {text: 'Base', link: '/golang'},
+                    {text: 'Overview', link: '/golang'},
                     {text: 'Garbage Collection', link: '/golang/garbage-collection'},
+                    {text: 'New and Make', link: '/golang/new-and-make'},
                 ]
             },
             {
                 text: 'Python',
                 items: [
-                    // {text: 'Base', link: '/python'},
+                    {text: 'Overview', link: '/python'},
                     {text: 'Garbage Collection', link: '/python/garbage-collection'},
+                    {text: 'Decorator', link: '/python/decorator'},
                 ],
             }
         ],

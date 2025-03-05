@@ -1,7 +1,10 @@
 ---
 prev:
-  text: 'Python'
-  link: '/python'
+    text: 'Overview'
+    link: '/python'
+next:
+    text: 'Decorator'
+    link: '/python/decorator'
 ---
 
 # 垃圾回收

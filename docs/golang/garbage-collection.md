@@ -1,10 +1,10 @@
 ---
 prev:
-   text: 'Golang'
+   text: 'Overview'
    link: '/golang'
 next:
-   text: 'Python'
-   link: '/python'
+   text: 'New And Make'
+   link: '/golang/new-and-make'
 ---
 
 # 垃圾回收机制 

@@ -1,11 +1,8 @@
 ---
-prev:
-  text: 'Golang'
-  link: '/golang'
-
+prev: false
 next:
-  text: 'Garbage Collection'
-  link: '/python/garbage-collection'
+    text: 'Garbage Collection'
+    link: '/python/garbage-collection'
 ---
 
 # 基本语法
