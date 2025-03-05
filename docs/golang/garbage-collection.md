@@ -1,5 +1,7 @@
 ---
-prev: false
+prev:
+   text: 'Golang'
+   link: '/golang'
 next:
    text: 'Python'
    link: '/python'
