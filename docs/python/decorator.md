@@ -1,5 +1,7 @@
 ---
-next: false
+next: 
+  text: 'Event Loop'
+  link: '/python/eventloop'
 prev:
   text: 'Garbage Collection'
   link: '/python/garbage-collection'

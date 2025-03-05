@@ -43,6 +43,7 @@ export default defineConfig({
                     {text: 'Overview', link: '/python'},
                     {text: 'Garbage Collection', link: '/python/garbage-collection'},
                     {text: 'Decorator', link: '/python/decorator'},
+                    {text: 'Event Loop', link: '/python/eventloop'},
                 ],
             }
         ],
