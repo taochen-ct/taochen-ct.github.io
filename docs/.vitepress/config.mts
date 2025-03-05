@@ -2,8 +2,8 @@ import {defineConfig} from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-    title: "My Awesome Project",
-    description: "A VitePress Site",
+    title: "My Awesome Blog",
+    description: 'Welcome to my personal blog, where I share my learnings.',
     themeConfig: {
         search: {
             provider: 'local'
