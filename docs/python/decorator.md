@@ -8,7 +8,7 @@ prev:
   link: '/python/garbage-collection'
 ---
 
-# 装饰器
+# Decorator
 
 <br>
 

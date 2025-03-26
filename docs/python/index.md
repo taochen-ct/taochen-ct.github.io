@@ -6,7 +6,7 @@ next:
     link: '/python/garbage-collection'
 ---
 
-# 基本语法
+# Base Data Structure and Operations
 
 <br>
 

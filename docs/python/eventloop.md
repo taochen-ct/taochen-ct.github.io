@@ -6,7 +6,7 @@ prev:
   link: '/python/decorator'
 ---
 
-# 事件循环
+# Event Loop
 
 <br>
 

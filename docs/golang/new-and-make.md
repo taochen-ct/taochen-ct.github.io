@@ -7,7 +7,7 @@ prev:
 ---
 
 
-# `new`和`make`的区别
+# Difference between `new` and `make`
 
 <br>
 

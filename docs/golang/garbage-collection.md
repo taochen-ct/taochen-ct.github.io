@@ -8,7 +8,7 @@ next:
    link: '/golang/new-and-make'
 ---
 
-# 垃圾回收机制 
+# Garbage Collection 
 
 Go（Golang）的垃圾回收机制（Garbage Collection，简称 GC）是由 **Go Runtime** 提供的，用于自动管理内存，确保内存被有效地分配和回收，而不需要开发者显式地进行内存管理。Go
 的垃圾回收机制采用了 **标记-清除** 和 **分代收集** 的结合，并且尽量使其工作效率更高，以减少对并发程序的影响。

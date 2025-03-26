@@ -8,7 +8,7 @@ next:
     link: '/python/decorator'
 ---
 
-# 垃圾回收
+# Garbage Collection
 <br>
 
 在 Python 中，垃圾回收（GC）机制主要通过 **引用计数**、**分代回收** 和 **标记-清除（Mark-and-Sweep）** 三种方式来管理内存。
