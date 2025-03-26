@@ -1,0 +1,153 @@
+# Basic Data Structures in Python
+
+Python provides several built-in data structures that can be categorized into mutable and immutable types:
+
+- Mutable data structures: list, dict, set, bytearray
+- Immutable data structures: int, float, str, tuple, frozenset, bytes
+
+Mutable structures can be modified after creation (e.g., appending to a list).
+
+Immutable structures cannot be changed after creation (e.g., strings).
+
+## HTTP Request Methods in the `requests` Library
+
+The requests library in Python supports various HTTP methods for interacting with web services:
+- **GET**: Retrieve data from the server (e.g., requests.get(url)).
+- **POST**: Send data to the server, often used for form submissions or API calls (e.g., requests.post(url, data)).
+- **PUT**: Update an existing resource (e.g., requests.put(url, data)).
+- **DELETE**: Remove a resource from the server (e.g., requests.delete(url)).
+- **PATCH**: Partially update a resource (e.g., requests.patch(url, data)).
+- **HEAD**: Similar to GET but only retrieves headers (e.g., requests.head(url)).
+
+## Upload Files with `requests`
+
+The `requests` library makes it easy to upload files using a POST request. Here's a basic example:
+
+```python
+import requests
+
+url = 'https://example.com/upload'
+files = {'file': open('test.txt', 'rb')}
+response = requests.post(url, files=files)
+
+print(response.status_code)
+```
+**Explanation:**
+
+- `files={'file': open('example.txt', 'rb')}` creates a multipart-encoded file upload.
+- The key (`file`) should match the backend API's expected form key.
+- Ensure you handle potential errors with `try-except` or `response.raise_for_status()`.
+
+## Basic Structure of a `Pandas` DataFrame
+A pandas DataFrame is a two-dimensional, labeled data structure with columns of potentially different types — similar to a table or a spreadsheet.
+
+**Basic components:**
+- Rows (index): The horizontal axis representing individual data entries.
+- Columns: The vertical axis representing specific attributes or features.
+- Data: The core content stored in cells.
+
+```python
+import pandas as pd
+
+data = {'Name': ['Alice', 'Bob', 'Charlie'], 'Age': [25, 30, 35]}
+df = pd.DataFrame(data)
+```
+
+## Basic Data Structures in `Pandas`
+
+pandas has tow primary structures
+- Series(1D): A Series is a one-dimensional labeled array.
+    ```python
+    import pandas as pd
+
+    s = pd.Series([10, 20, 30], index=["a", "b", "c"])
+    print(s)
+    ```
+
+- Dataframe(2D): A DataFrame is a two-dimensional table, similar to a spreadsheet.
+    ```python
+    import pandas as pd
+    
+    data = {"Name": ["Alice", "Bob"], "Age": [25, 30]}
+    df = pd.DataFrame(data)
+    print(df)
+    ```
+
+- Index Object: Both Series and DataFrame have an Index to manage row labels.
+    ```python
+    print(df.index)  # RangeIndex(start=0, stop=2, step=1)
+    print(df.columns)  # Index(['Name', 'Age'], dtype='object') 
+    ```
+
+## Basic Methods in pandas
+Some essential pandas methods include:
+
+- **head() / tail()**: View the first/last few rows (df.head(5))
+- **info()**: Display DataFrame structure (df.info())
+- **describe()**: Get statistics of numeric columns (df.describe())
+- **sort_values()**: Sort DataFrame by column (df.sort_values(by='Age'))
+- **groupby()**: Group data based on columns (df.groupby('Category').sum())
+- **isnull() / fillna()**: Detect or fill missing values (df.fillna(0))
+
+
+## Difference Between loc and iloc Methods
+- **loc:** Label-based selection — selects rows/columns by their labels (e.g., df.loc[1, 'Name']).
+- **iloc**: Integer position-based selection — selects rows/columns by their numeric indices (e.g., df.iloc[1, 0]).
+
+```python
+df = pd.DataFrame({'Name': ['Alice', 'Bob'], 'Age': [25, 30]})
+print(df.loc[0, 'Name'])   # Alice
+print(df.iloc[0, 0])        # Alice
+```
+
+## Basic Usage and Components of Langchain Framework
+Langchain is a powerful framework for building applications using language models (LLMs). It supports tasks like chatbots, retrieval-augmented generation (RAG), and AI agents.
+
+**Core components include:**
+- **Prompt templates**: Structure the input prompts efficiently.
+- **Chains**: Link multiple LLM calls or actions together.
+- **Agents**: Allow the model to decide which tools or APIs to call.
+- **Memory**: Maintain conversation context between user interactions.
+
+
+## Basic Usage of PyTorch Framework
+PyTorch is an open-source machine learning library focused on deep learning.
+
+**Key steps:**
+
+1. **Define a model**: Create a neural network using nn.Module.
+2. **Define a loss function**: Common choices include MSE, CrossEntropy, etc.
+3. **Choose an optimizer**: Examples include SGD, Adam, etc.
+4. **Train the model**: Loop over the dataset, compute loss, and update weights.
+
+## Modify the Most Recent Git Commit
+If you want to modify the latest commit without creating a new one:
+
+1. Amend the commit message:
+    ```bash
+    git commit --amend
+    ```
+
+2. Add new changes to the last commit:
+    ```bash
+    git add <file>
+    git commit --amend
+    ```
+   
+3. Force push if you've already pushed the old commit:
+    ```bash
+    git push origin branch-name --force
+    ```
+if you want to delete most recently commit
+
+1. This keeps your file modifications staged.
+    ```bash
+    git reset --soft HEAD~1
+    ```
+
+2. This removes the commit and all changes.
+    ```bash
+    git reset --hard HEAD~1
+    ```
+
+`git rm --cached` does not delete a commit — it only removes the file from the staging area while keeping it in your working directory.

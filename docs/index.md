@@ -19,6 +19,9 @@ hero:
     - theme: alt
       text: Docker
       link: /docker
+    - theme: alt
+      text: Review
+      link: /review
 
 features:
   - title: Tech Insights

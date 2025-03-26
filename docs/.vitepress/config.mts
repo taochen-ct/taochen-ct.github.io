@@ -54,6 +54,13 @@ export default defineConfig({
                     {text: 'Error', link: '/docker/error'},
                 ]
             },
+            {
+                text: 'Review',
+                items: [
+                    {text: 'Overview', link: '/review'},
+                    {text: 'Python', link: '/review/python'},
+                ]
+            },
         ],
 
         socialLinks: [
