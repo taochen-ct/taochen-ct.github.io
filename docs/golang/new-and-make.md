@@ -1,4 +1,5 @@
 ---
+title: New And Make
 next: false
 prev:
   text: 'Garbage Collection'

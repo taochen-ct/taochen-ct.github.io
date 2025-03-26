@@ -59,7 +59,7 @@ export default defineConfig({
                 items: [
                     {text: 'Overview', link: '/review'},
                     {text: 'Python', link: '/review/python'},
-                ]
+                ],
             },
         ],
 

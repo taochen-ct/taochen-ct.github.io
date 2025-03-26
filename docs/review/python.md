@@ -1,3 +1,7 @@
+---
+title: Python
+---
+
 # Basic Data Structures in Python
 
 Python provides several built-in data structures that can be categorized into mutable and immutable types:

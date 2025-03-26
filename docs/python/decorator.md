@@ -1,4 +1,5 @@
 ---
+title: Decorator
 next: 
   text: 'Event Loop'
   link: '/python/eventloop'

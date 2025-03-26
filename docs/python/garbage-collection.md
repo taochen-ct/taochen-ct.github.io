@@ -1,4 +1,5 @@
 ---
+title: GC
 prev:
     text: 'Overview'
     link: '/python'
