@@ -58,7 +58,8 @@ export default defineConfig({
                 text: 'Review',
                 items: [
                     {text: 'Overview', link: '/review'},
-                    {text: 'Python', link: '/review/python'},
+                    {text: '3.26', link: '/review/3-26'},
+                    {text: '3.27', link: '/review/3-27'},
                 ],
             },
         ],
