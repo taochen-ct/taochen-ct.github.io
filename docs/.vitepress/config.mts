@@ -61,6 +61,7 @@ export default defineConfig({
                     {text: '3.26', link: '/review/3-26'},
                     {text: '3.27', link: '/review/3-27'},
                     {text: '4.2', link: '/review/4-2'},
+                    {text: '4.3', link: '/review/4-3'},
                 ],
             },
         ],
