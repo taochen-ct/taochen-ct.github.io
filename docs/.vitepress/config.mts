@@ -100,6 +100,9 @@ export default defineConfig({
                     {text: 'RAG & Embeddings', link: '/ai/rag'},
                     {text: 'Prompt Engineering', link: '/ai/prompt'},
                     {text: 'Function Calling', link: '/ai/function'},
+                    {text: 'LLM Deployment', link: '/ai/deployment'},
+                    {text: 'Ollama', link: '/ai/ollama'},
+                    {text: 'vLLM', link: '/ai/vllm'},
                 ]
             },
             {
