@@ -40,6 +40,10 @@ export default defineConfig({
                     {text: 'Error Handling', link: '/golang/error'},
                     {text: 'Database', link: '/golang/database'},
                     {text: 'HTTP Client', link: '/golang/http-client'},
+                    {text: 'Generics', link: '/golang/generics'},
+                    {text: 'Context Package', link: '/golang/context'},
+                    {text: 'Testing', link: '/golang/testing'},
+                    {text: 'gRPC', link: '/golang/grpc'},
                     {text: 'Gin Framework', link: '/golang/gin'},
                 ]
             },
@@ -52,6 +56,10 @@ export default defineConfig({
                     {text: 'Event Loop', link: '/python/eventloop'},
                     {text: 'Asyncio', link: '/python/asyncio'},
                     {text: 'Context Managers & Generators', link: '/python/context-gen'},
+                    {text: 'Advanced Asyncio', link: '/python/advanced-asyncio'},
+                    {text: 'Type Hints & Pydantic', link: '/python/typing'},
+                    {text: 'Async HTTP (httpx)', link: '/python/httpx'},
+                    {text: 'Package Management (Poetry)', link: '/python/poetry'},
                     {text: 'Testing (pytest)', link: '/python/pytest'},
                     {text: 'Logging', link: '/python/logging'},
                     {text: 'Database (SQLAlchemy)', link: '/python/sqlalchemy'},
@@ -89,6 +97,9 @@ export default defineConfig({
                     {text: 'Context Engineering', link: '/ai/context'},
                     {text: 'Agent Loop', link: '/ai/agent-loop'},
                     {text: 'LangChain', link: '/ai/langchain'},
+                    {text: 'RAG & Embeddings', link: '/ai/rag'},
+                    {text: 'Prompt Engineering', link: '/ai/prompt'},
+                    {text: 'Function Calling', link: '/ai/function'},
                 ]
             },
             {
