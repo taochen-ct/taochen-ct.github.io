@@ -2,7 +2,7 @@ import {defineConfig} from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-    title: "My Awesome Blog",
+    title: "A HA !!!",
     description: 'Welcome to my personal blog, where I share my learnings.',
     head: [
         ['link', {rel: 'icon', type: 'image/png', href:"/favicon-96x96.png", sizes:"96x96"}],
