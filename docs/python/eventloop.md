@@ -1,79 +1,105 @@
 ---
 title: Event Loop
-next: false
 prev:
-  text: 'Decorator'
-  link: '/python/decorator'
+    link: '/python/decorator'
+    text: 'Decorator'
+next:
+    link: '/python/asyncio'
+    text: 'Asyncio'
 ---
 
 # Event Loop
 
-<br>
+The event loop is the core of asynchronous programming in Python. It enables handling multiple I/O operations concurrently within a single thread.
 
-Python 的事件循环是处理异步编程的一种机制，它使得程序能够在单线程中处理多个任务而无需阻塞。这种机制广泛用于异步 I/O 操作、协程和并发任务管理。事件循环主要用于调度和管理异步操作，确保任务在完成时能够被适当处理。
+## How Event Loop Works
 
-### 事件循环的工作原理
+1. **Register Events**: Register callbacks for I/O operations (network, file) or timers
+2. **Wait**: Monitor for event readiness (non-blocking)
+3. **Execute**: Run associated callbacks when events are ready
+4. **Repeat**: Continue processing until all tasks complete
 
-事件循环的基本工作流程如下：
-
-1. **事件注册**：
-   - 事件循环注册需要处理的事件和回调函数。事件可以是 I/O 操作（如网络请求、文件读取）或定时器（如延迟任务）。
-2. **事件等待**：
-   - 事件循环进入等待状态，等待事件的发生。
-3. **事件处理**：
-   - 一旦事件发生，事件循环会调用相应的回调函数来处理这个事件。
-4. **继续循环**：
-   - 处理完一个事件后，事件循环会继续等待和处理下一个事件，直到所有事件处理完毕或程序终止。
-
-### Python 中的事件循环
-
-在 Python 中，事件循环通常由 `asyncio` 库提供。`asyncio` 是 Python 标准库中的一个模块，用于编写异步代码和事件循环管理。
-
-#### 示例代码
-
-以下是一个使用 `asyncio` 创建事件循环的简单示例：
+## Event Loop in asyncio
 
 ```python
 import asyncio
 
-async def my_coroutine():
-    print("Start coroutine")
-    await asyncio.sleep(1)  # 异步等待 1 秒
-    print("End coroutine")
-
 async def main():
-    print("Start main")
-    await my_coroutine()  # 调用协程
-    print("End main")
+    print("Hello")
+    await asyncio.sleep(1)
+    print("World")
 
-# 运行事件循环
-if __name__ == "__main__":
-    asyncio.run(main())
+asyncio.run(main())
 ```
 
-在这个示例中：
+## Key Concepts
 
-- `my_coroutine` 是一个异步协程函数，它使用 `await` 关键字等待 `asyncio.sleep(1)`，模拟一个异步操作。
-- `main` 是另一个异步协程函数，它调用 `my_coroutine` 并等待其完成。
-- `asyncio.run(main())` 启动事件循环并运行 `main` 协程。
+### Coroutines
 
-### 事件循环的核心功能
+```python
+# Coroutine function
+async def fetch_data():
+    await asyncio.sleep(1)
+    return "data"
 
-1. **任务调度**：
-   - 事件循环可以调度多个异步任务（协程），使得它们可以并发执行。
-2. **异步 I/O**：
-   - 处理网络请求、文件操作等 I/O 操作时不会阻塞主线程。
-3. **定时任务**：
-   - 支持设置延迟任务或周期性任务，如定时器。
-4. **协程管理**：
-   - 管理和协调多个协程的执行。
+# Calling coroutine
+async def main():
+    result = await fetch_data()
+    print(result)
+```
 
-### 使用事件循环的场景
+### Tasks
 
-- **网络编程**：处理异步网络请求，如 HTTP 请求、WebSocket 连接。
-- **并发任务**：同时执行多个任务，如爬虫程序、数据处理。
-- **实时应用**：如聊天应用、游戏服务器需要处理实时消息和事件。
+```python
+# Create task from coroutine
+async def main():
+    task = asyncio.create_task(fetch_data())
+    # Do other work
+    result = await task
+```
 
-### 总结
+### Futures
 
-事件循环是异步编程中的核心机制，它通过不断检查和调度事件，允许单线程程序高效地处理多个异步操作。在 Python 中，`asyncio` 模块提供了事件循环的实现，使得编写异步代码变得更加方便。
+```python
+# Future represents eventual result
+async def main():
+    loop = asyncio.get_event_loop()
+    future = loop.create_future()
+    await future
+```
+
+## Running Event Loop
+
+```python
+# Primary way (Python 3.7+)
+asyncio.run(main())
+
+# Manual control
+loop = asyncio.new_event_loop()
+asyncio.set_event_loop(loop)
+try:
+    loop.run_until_complete(main())
+finally:
+    loop.close()
+```
+
+## Multiple Coroutines
+
+```python
+import asyncio
+
+async def task1():
+    await asyncio.sleep(1)
+    return "Task 1"
+
+async def task2():
+    await asyncio.sleep(2)
+    return "Task 2"
+
+async def main():
+    # Run concurrently
+    results = await asyncio.gather(task1(), task2())
+    print(results)  # ['Task 1', 'Task 2']
+
+asyncio.run(main())
+```

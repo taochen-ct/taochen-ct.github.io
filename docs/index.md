@@ -3,11 +3,11 @@
 layout: home
 
 hero:
-  name: "My Awesome Blog"
+  name: "A HA!"
   text: "Hi! 😊"
   tagline: Record my learning and thinking
   image:
-    src: /logo.JPG  # Your avatar or logo
+    src: /logo.JPG
     alt: Loading
   actions:
     - theme: brand
@@ -20,6 +20,12 @@ hero:
       text: Docker
       link: /docker
     - theme: alt
+      text: Linux
+      link: /linux
+    - theme: alt
+      text: AI
+      link: /ai
+    - theme: alt
       text: Review
       link: /review
 
@@ -31,20 +37,3 @@ features:
   - title: Open Source
     details: Showcasing the open-source projects I contribute to or maintain.
 ---
-
-[//]: # (## Latest Posts)
-
-[//]: # ()
-[//]: # (- [Post 1: Getting Started with VitePress]&#40;/blog/post-1&#41;)
-
-[//]: # (- [Post 2: Best Practices in Vue.js]&#40;/blog/post-2&#41;)
-
-[//]: # (- [Post 3: Writing Clean and Elegant Code]&#40;/blog/post-3&#41;)
-
-
-## Connect with Me
-
-- GitHub: https://github.com/taochen-ct
-
-[//]: # (- Twitter: [My Twitter]&#40;https://twitter.com/yourusername&#41;)
-- Email: taochen.c@outlook.com

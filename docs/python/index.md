@@ -6,131 +6,173 @@ next:
     link: '/python/garbage-collection'
 ---
 
-# Base Data Structure and Operations
+# Python
 
-<br>
+Python is a versatile, high-level programming language known for its readability and broad ecosystem.
 
-Python 的基本语法简洁且易读，主要包括以下几个方面：
+## Basic Commands
 
-### 变量与数据类型
-```python
-x = 10         # 整数 (int)
-y = 3.14       # 浮点数 (float)
-name = "Alice" # 字符串 (str)
-is_ok = True   # 布尔值 (bool)
-nums = [1, 2, 3]  # 列表 (list)
-info = {"name": "Bob", "age": 25}  # 字典 (dict)
+```bash
+# Run Python
+python script.py
+
+# Run with specific version
+python3 script.py
+python3.11 script.py
+
+# Interactive mode
+python -i
+
+# Install package
+pip install requests
+pip install -r requirements.txt
+
+# Virtual environment
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate     # Windows
+
+# Format code
+black .
+ruff check .
+
+# Type checking
+mypy .
 ```
 
-### 控制流
-条件判断 (if-elif-else)
+## Project Structure
+
+```
+myproject/
+├── src/              # Source code
+├── tests/            # Test files
+├── venv/             # Virtual environment
+├── requirements.txt  # Dependencies
+├── setup.py          # Package config
+└── pyproject.toml    # Project config (modern)
+```
+
+## Data Types
 
 ```python
-age = 18
-if age >= 18:
-    print("Adult")
-elif age >= 12:
-    print("Teenager")
+# Basic types
+x = 10          # int
+y = 3.14        # float
+name = "Alice"  # str
+is_active = True  # bool
+
+# Collections
+numbers = [1, 2, 3]        # list
+coords = (1, 2)            # tuple
+data = {"key": "value"}    # dict
+unique = {1, 2, 3}        # set
+```
+
+## Control Flow
+
+```python
+# Conditionals
+if x > 10:
+    print("big")
+elif x > 5:
+    print("medium")
 else:
-    print("Child")
+    print("small")
+
+# Loops
+for item in items:
+    print(item)
+
+while condition:
+    break/continue
 ```
-循环 (for 和 while)
+
+## Functions
 
 ```python
-# for 循环
-for i in range(5):  
-    print(i)  # 输出 0 到 4
+def greet(name, greeting="Hello"):
+    return f"{greeting}, {name}!"
 
-# while 循环
-count = 0
-while count < 5:
-    print(count)
-    count += 1
+# Lambda
+square = lambda x: x ** 2
+
+# Type hints
+def process(items: list[int]) -> int:
+    return sum(items)
 ```
 
-### 函数
-
-```python
-def add(a, b):
-    return a + b
-
-result = add(3, 5)  # 8
-```
-
-### 面向对象编程 (OOP)
+## Classes
 
 ```python
 class Person:
-    def __init__(self, name, age):
+    def __init__(self, name: str):
         self.name = name
-        self.age = age
 
-    def greet(self):
-        return f"Hello, my name is {self.name}"
-        
-p = Person("Alice", 25)
-print(p.greet())  # "Hello, my name is Alice"
+    def greet(self) -> str:
+        return f"Hello, {self.name}"
+
+# Inheritance
+class Student(Person):
+    def __init__(self, name: str, grade: int):
+        super().__init__(name)
+        self.grade = grade
 ```
 
-### 异常处理
+## Error Handling
 
 ```python
 try:
-    x = 1 / 0
-except ZeroDivisionError:
-    print("Cannot divide by zero")
+    result = risky_operation()
+except ValueError as e:
+    print(f"Error: {e}")
+except (TypeError, KeyError):
+    print("Other error")
 finally:
-    print("Execution finished")
+    cleanup()
+
+# Custom exception
+class MyError(Exception):
+    pass
 ```
 
-### 文件操作
+## File Operations
 
 ```python
-# 读取文件
+# Read
 with open("file.txt", "r") as f:
     content = f.read()
 
-# 写入文件
+# Write
 with open("file.txt", "w") as f:
-    f.write("Hello, World!")
+    f.write("content")
+
+# Context manager
+with open("a.txt") as a, open("b.txt") as b:
+    pass
 ```
-   
-### 模块与库
+
+## Comprehensions
 
 ```python
-import math
-print(math.sqrt(16))  # 4.0
+# List comprehension
+squares = [x**2 for x in range(10)]
 
-# 导入自定义模    
-import mymodule 
+# Dict comprehension
+word_lengths = {word: len(word) for word in words}
+
+# Generator
+gen = (x**2 for x in range(1000))
 ```
 
-### 列表推导式
+## Common Libraries
 
-```python
-squares = [x**2 for x in range(5)]  # [0, 1, 4, 9, 16]
-```
-   
-### Lambda 匿名函数
-
-
-```python
-add = lambda x, y: x + y
-print(add(3, 5))  # 8
-```
-
-### 多线程
-
-```python
-import threading
-
-def worker():
-    print("Thread is running")
-
-t = threading.Thread(target=worker)
-t.start()
-t.join()
-```
-
-
-
+| Library | Purpose |
+|---------|---------|
+| `requests` | HTTP client |
+| `json` | JSON handling |
+| `datetime` | Date/time |
+| `pathlib` | File paths |
+| `asyncio` | Async programming |
+| `functools` | Functional tools |
+| `itertools` | Iterator tools |
+| `collections` | Specialized containers |

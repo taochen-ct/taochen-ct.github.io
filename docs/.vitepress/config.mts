@@ -35,6 +35,12 @@ export default defineConfig({
                     {text: 'Overview', link: '/golang'},
                     {text: 'Garbage Collection', link: '/golang/garbage-collection'},
                     {text: 'New and Make', link: '/golang/new-and-make'},
+                    {text: 'Goroutine & Concurrency', link: '/golang/goroutine'},
+                    {text: 'Interface', link: '/golang/interface'},
+                    {text: 'Error Handling', link: '/golang/error'},
+                    {text: 'Database', link: '/golang/database'},
+                    {text: 'HTTP Client', link: '/golang/http-client'},
+                    {text: 'Gin Framework', link: '/golang/gin'},
                 ]
             },
             {
@@ -44,14 +50,45 @@ export default defineConfig({
                     {text: 'Garbage Collection', link: '/python/garbage-collection'},
                     {text: 'Decorator', link: '/python/decorator'},
                     {text: 'Event Loop', link: '/python/eventloop'},
+                    {text: 'Asyncio', link: '/python/asyncio'},
+                    {text: 'Context Managers & Generators', link: '/python/context-gen'},
+                    {text: 'Testing (pytest)', link: '/python/pytest'},
+                    {text: 'Logging', link: '/python/logging'},
+                    {text: 'Database (SQLAlchemy)', link: '/python/sqlalchemy'},
+                    {text: 'FastAPI', link: '/python/fastapi'},
                 ],
             },
             {
                 text: 'Docker',
                 items: [
                     {text: 'Overview', link: '/docker'},
-                    {text: 'Containers', link: '/docker/container'},
-                    {text: 'Error', link: '/docker/error'},
+                    {text: 'Container Commands', link: '/docker/container'},
+                    {text: 'Error Solutions', link: '/docker/error'},
+                    {text: 'Dockerfile', link: '/docker/dockerfile'},
+                    {text: 'Docker Compose', link: '/docker/compose'},
+                ]
+            },
+            {
+                text: 'Linux',
+                items: [
+                    {text: 'Overview', link: '/linux'},
+                    {text: 'Basic Commands', link: '/linux/commands'},
+                    {text: 'Network', link: '/linux/network'},
+                    {text: 'Systemd', link: '/linux/systemd'},
+                ]
+            },
+            {
+                text: 'AI',
+                items: [
+                    {text: 'Overview', link: '/ai'},
+                    {text: 'Transformers', link: '/ai/transformers'},
+                    {text: 'A2A Protocol', link: '/ai/a2a'},
+                    {text: 'Skill', link: '/ai/skill'},
+                    {text: 'MCP', link: '/ai/mcp'},
+                    {text: 'Harness Engineering', link: '/ai/harness'},
+                    {text: 'Context Engineering', link: '/ai/context'},
+                    {text: 'Agent Loop', link: '/ai/agent-loop'},
+                    {text: 'LangChain', link: '/ai/langchain'},
                 ]
             },
             {

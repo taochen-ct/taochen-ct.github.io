@@ -1,47 +1,122 @@
 ---
-title: Error
+title: Error Solutions
+prev:
+    link: '/docker/container'
+    text: 'Container Commands'
+next:
+    link: '/docker/dockerfile'
+    text: 'Dockerfile'
 ---
 
-### 1. docker0: iptables: No chain/target/match by that name问题解决
+# Common Errors and Solutions
 
-#### reason：重新修改防火墙，重新启动防火墙导致iptable出问题
-#### check：
+## 1. iptables: No chain/target/match by that name
+
+**Cause**: Firewall was modified and restarted, causing iptables issues
+
+**Check**:
 ```bash
-# check iptable
+# Check iptables
 iptables -L -n
 
-# is br_netfilter normal
+# Check if br_netfilter is loaded
 lsmod | grep br_netfilter
 ```
-#### solution：
-restart docker service
+
+**Solution**:
 ```bash
-# method 1 (common)
+# Method 1: Restart Docker service
 systemctl restart docker
 
-# method 2 (offline or run dockerd by nohup)
+# Method 2: Restart dockerd manually
 ps -ef | grep dockerd
 kill -9 <PID>
-nohup dockerd > dockerd.txt 2>&1 &
+nohup dockerd > dockerd.log 2>&1 &
 ```
 
-### 2. docker加载镜像报错No space left device
+## 2. No space left on device
 
-#### reason：docker根目录内存空间不足
-#### check：
-1. df -h  查看系统盘空间
-2. docker info 查看docker容器根目录
-3. df -hl <data-root：docker根路径>
-#### solution：
-1. 修改 /etc/docker/daemon.json 更改docker根路径指向
-2. 重新启动dockerd服务
->  dockerd服务还未启动时就修改date-root路径，防止以上问题
+**Cause**: Docker root directory has insufficient disk space
 
+**Check**:
+```bash
+# Check system disk space
+df -h
 
-### 3. 容器内服务启动线程无权限
+# Check Docker data root
+docker info | grep "Docker Root Dir"
 
-#### reason：容器内进程权限不够
-#### check：查看容器启动日志
-#### solution： 
-1. 使用docker-compose启动：在启动yml文件中对应容器增加 `privileged: true`选项
-2. docker直接启动增加 `--privileged=true`  参数
+# Check specific partition
+df -hl <docker-data-root-path>
+```
+
+**Solution**:
+1. Create/edit `/etc/docker/daemon.json`:
+```json
+{
+    "data-root": "/new/path/for/docker"
+}
+```
+2. Restart Docker service
+
+**Prevention**: Configure data-root before starting Docker for the first time
+
+## 3. Container process lacks permission
+
+**Cause**: Container process lacks necessary privileges
+
+**Solution**:
+
+Using docker-compose:
+```yaml
+services:
+  your-service:
+    privileged: true
+```
+
+Using docker run:
+```bash
+docker run --privileged=true <image>
+```
+
+## 4. Connection refused / Connection reset
+
+**Common Causes**:
+- Container not running
+- Port not exposed correctly
+- Service inside container not started
+- Firewall blocking
+
+**Debug Steps**:
+```bash
+# Check if container is running
+docker ps
+
+# Check container logs
+docker logs <container-name>
+
+# Verify port mapping
+docker port <container-name>
+
+# Test connectivity from inside container
+docker exec -it <container-name> curl localhost:<port>
+
+# Check docker0 network
+ip addr show docker0
+```
+
+## 5. Image pull failed
+
+**Cause**: Network issues or authentication required
+
+**Solutions**:
+```bash
+# Retry with mirror (China region)
+docker pull dockerhub.azk8s.cn/<image>:<tag>
+
+# Login to private registry
+docker login <registry-url>
+
+# Check DNS
+docker info | grep -i dns
+```
