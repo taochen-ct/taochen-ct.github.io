@@ -97,6 +97,7 @@ export default defineConfig({
                     {text: 'Context Engineering', link: '/ai/context'},
                     {text: 'Agent Loop', link: '/ai/agent-loop'},
                     {text: 'LangChain', link: '/ai/langchain'},
+                    {text: 'LangChain Agent', link: '/ai/langchain-agent'},
                     {text: 'RAG & Embeddings', link: '/ai/rag'},
                     {text: 'Prompt Engineering', link: '/ai/prompt'},
                     {text: 'Function Calling', link: '/ai/function'},
