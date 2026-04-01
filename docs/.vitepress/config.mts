@@ -96,6 +96,7 @@ export default defineConfig({
                     {text: 'Harness Engineering', link: '/ai/harness'},
                     {text: 'Context Engineering', link: '/ai/context'},
                     {text: 'Agent Loop', link: '/ai/agent-loop'},
+                    {text: 'Deep Agents', link: '/ai/deepagents'},
                     {text: 'LangChain', link: '/ai/langchain'},
                     {text: 'LangChain Agent', link: '/ai/langchain-agent'},
                     {text: 'RAG & Embeddings', link: '/ai/rag'},
