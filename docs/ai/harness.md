@@ -281,3 +281,199 @@ async def efficiency(agent: Any, expected: dict) -> float:
     actual = len(agent.frames)
     return max(0, 1 - (actual - optimal) / optimal)
 ```
+
+## Agent Session State Management
+
+```python
+from typing import Any
+from dataclasses import dataclass
+
+class HookState:
+    """Mutable wrapper for a single hook's state.
+
+    Changes are written back to the session state automatically.
+    """
+
+    def __init__(self, session_state: dict[str, dict[str, Any]], source_id: str):
+        self._session_state = session_state
+        self._source_id = source_id
+        if source_id not in session_state:
+            session_state[source_id] = {}
+
+    def get(self, key: str, default: Any = None) -> Any:
+        return self._session_state[self._source_id].get(key, default)
+
+    def set(self, key: str, value: Any) -> None:
+        self._session_state[self._source_id][key] = value
+
+    def update(self, values: dict[str, Any]) -> None:
+        self._session_state[self._source_id].update(values)
+
+
+class SessionState:
+    """Structured state container for a session."""
+
+    def __init__(self, session_id: str):
+        self.session_id = session_id
+        self.service_session_id: str | None = None
+        self._hook_state: dict[str, dict[str, Any]] = {}
+
+    def get_hook_state(self, source_id: str) -> HookState:
+        """Get mutable state wrapper for a specific hook."""
+        return HookState(self._hook_state, source_id)
+
+
+class AgentSession:
+    """Lightweight conversation session container."""
+
+    def __init__(self, *, session_id: str | None = None):
+        import uuid
+        self._session_id = session_id or str(uuid.uuid4())
+        self._state = SessionState(self._session_id)
+
+    @property
+    def session_id(self) -> str:
+        return self._session_id
+
+    @property
+    def state(self) -> SessionState:
+        return self._state
+```
+
+## Context Provider Pattern
+
+```python
+from typing import Any, Protocol, Sequence
+from abc import ABC, abstractmethod
+
+class ContextProvider(ABC):
+    """Base class for context providers that modify session state."""
+
+    def __init__(self, source_id: str):
+        self.source_id = source_id
+
+    async def before_run(
+        self,
+        agent: Any,
+        session: AgentSession,
+        context: Any,
+        state: dict[str, Any]
+    ) -> None:
+        """Called before agent execution."""
+        pass
+
+    async def after_run(
+        self,
+        agent: Any,
+        session: AgentSession,
+        context: Any,
+        state: dict[str, Any]
+    ) -> None:
+        """Called after agent execution."""
+        pass
+
+
+class InMemoryHistoryProvider(ContextProvider):
+    """Provider that maintains chat history in session state."""
+
+    def __init__(self, source_id: str = "memory", load_messages: bool = True):
+        super().__init__(source_id)
+        self.load_messages = load_messages
+
+    async def before_run(
+        self,
+        agent: Any,
+        session: AgentSession,
+        context: Any,
+        state: dict[str, Any]
+    ) -> None:
+        if not self.load_messages:
+            return
+        my_state = state.get(self.source_id, {})
+        messages = my_state.get("messages", [])
+        context.extend_messages(self.source_id, messages)
+
+    async def after_run(
+        self,
+        agent: Any,
+        session: AgentSession,
+        context: Any,
+        state: dict[str, Any]
+    ) -> None:
+        my_state = state.setdefault(self.source_id, {})
+        messages = my_state.get("messages", [])
+        my_state["messages"] = [
+            *messages,
+            *context.input_messages,
+            *(context.response.messages or []),
+        ]
+
+
+class TimeContextProvider(ContextProvider):
+    """Stateless provider that adds time context."""
+
+    def __init__(self):
+        super().__init__("time")
+
+    async def before_run(
+        self,
+        agent: Any,
+        session: AgentSession,
+        context: Any,
+        state: dict[str, Any]
+    ) -> None:
+        from datetime import datetime
+        context.extend_instructions(
+            self.source_id,
+            f"Current time: {datetime.now().isoformat()}"
+        )
+```
+
+## Evaluation with GAIA Benchmark
+
+```python
+from datasets import load_dataset
+
+# Evaluate against GAIA benchmark
+gaia = load_dataset("gaia-benchmark/GAIA", "2023_level1", split="test")
+
+@evaluator
+def exact_match(response: str, expected_output: str) -> bool:
+    return expected_output.strip().lower() in response.strip().lower()
+
+results = await evaluate_agent(
+    agent=agent,
+    queries=[task["Question"] for task in gaia],
+    expected_output=[task["Final answer"] for task in gaia],
+    evaluators=LocalEvaluator(exact_match),
+)
+```
+
+## Best Practices
+
+```python
+# 1. Separate agent logic from execution harness
+class Agent:
+    def __init__(self):
+        self.context_providers: list[ContextProvider] = []
+
+    async def run(self, input: str, session: AgentSession):
+        # Agent logic only - harness handles execution
+        pass
+
+# 2. Use structured state with HookState wrapper
+state = session.state.get_hook_state("my_plugin")
+state.set("key", value)  # Auto-saves to session
+
+# 3. Implement proper cleanup in after_run
+async def after_run(self, agent, session, context, state):
+    # Always save state even on errors
+    state.set("last_run", datetime.now())
+
+# 4. Evaluate with real benchmarks
+results = await evaluate_agent(
+    agent=agent,
+    queries=test_queries,
+    expected_output=expected_outputs,
+    evaluators=[LocalEvaluator(custom_check)]
+)

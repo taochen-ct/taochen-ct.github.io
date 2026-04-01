@@ -265,3 +265,245 @@ def validate_context(context: AgentContext) -> bool:
         return False  # Too long
     return True
 ```
+
+## Context Injection Patterns
+
+```python
+from typing import Any, Callable
+import json
+
+class ContextInjector:
+    """Inject context into agent prompts."""
+
+    def __init__(self):
+        self.injectors: list[Callable] = []
+
+    def register(self, injector: Callable[[], dict]):
+        self.injectors.append(injector)
+
+    def build_context(self, base_messages: list[dict]) -> list[dict]:
+        messages = base_messages.copy()
+
+        for injector in self.injectors:
+            context = injector()
+            if context:
+                messages.append({
+                    "role": "system",
+                    "content": json.dumps(context),
+                    "name": context.get("source", "injector")
+                })
+
+        return messages
+
+
+# Example: User preference injector
+def user_preferences_injector(user_id: str) -> dict:
+    prefs = load_user_preferences(user_id)  # From database
+    return {
+        "source": "user_preferences",
+        "preferences": prefs,
+        "format": "Key-value pairs for user preferences"
+    }
+
+injector = ContextInjector()
+injector.register(lambda: user_preferences_injector("user123"))
+```
+
+## Context Window Management
+
+```python
+from typing import Any
+
+class ContextWindowManager:
+    """Manage context window to stay within token limits."""
+
+    def __init__(
+        self,
+        max_tokens: int = 8000,
+        model: str = "gpt-4"
+    ):
+        self.max_tokens = max_tokens
+        # Rough token estimation: 1 token ≈ 4 characters
+        self.char_per_token = 4
+
+    def estimate_tokens(self, text: str) -> int:
+        return len(text) // self.char_per_token
+
+    def fit_within_limit(self, messages: list[dict]) -> list[dict]:
+        """Truncate messages to fit within token limit."""
+        total = sum(
+            self.estimate_tokens(m.get("content", ""))
+            for m in messages
+        )
+
+        if total <= self.max_tokens:
+            return messages
+
+        # Keep system prompt and recent messages
+        result = [messages[0]] if messages[0].get("role") == "system" else []
+
+        remaining = self.max_tokens - self.estimate_tokens(
+            "".join(m.get("content", "") for m in result)
+        )
+
+        # Add recent messages until limit
+        for msg in reversed(messages[1:]):
+            msg_tokens = self.estimate_tokens(msg.get("content", ""))
+            if remaining >= msg_tokens:
+                result.insert(1, msg)
+                remaining -= msg_tokens
+            else:
+                # Truncate content
+                max_chars = remaining * self.char_per_token
+                truncated = {**msg, "content": msg["content"][:max_chars]}
+                result.insert(1, truncated)
+                break
+
+        return result
+
+    def summarize_and_compress(
+        self,
+        messages: list[dict],
+        summarizer: Any = None
+    ) -> list[dict]:
+        """Compress old messages using summarization."""
+        if len(messages) <= 10:
+            return messages
+
+        # Keep recent messages
+        recent = messages[-10:]
+
+        # Summarize older messages
+        older = messages[1:-10]  # Exclude system and recent
+        if older and summarizer:
+            summary = summarizer.summarize(older)
+            messages = [messages[0], {"role": "system", "content": f"Summary: {summary}"}]
+            messages.extend(recent)
+
+        return messages
+```
+
+## Multi-Agent Context Sharing
+
+```python
+from typing import Any
+from dataclasses import dataclass, field
+import json
+
+@dataclass
+class SharedContext:
+    """Shared context across multiple agents."""
+    session_id: str
+    global_state: dict[str, Any] = field(default_factory=dict)
+    agent_states: dict[str, dict[str, Any]] = field(default_factory=dict)
+    message_bus: list[dict] = field(default_factory=list)
+
+    def broadcast(self, from_agent: str, message: dict):
+        """Broadcast message to all agents."""
+        self.message_bus.append({
+            "from": from_agent,
+            "message": message,
+            "type": "broadcast"
+        })
+
+    def send_to(self, from_agent: str, to_agent: str, message: dict):
+        """Send message to specific agent."""
+        self.message_bus.append({
+            "from": from_agent,
+            "to": to_agent,
+            "message": message,
+            "type": "direct"
+        })
+
+    def get_messages_for(self, agent_id: str) -> list[dict]:
+        """Get all messages for an agent."""
+        return [
+            m for m in self.message_bus
+            if m.get("to") == agent_id or m.get("type") == "broadcast"
+        ]
+
+
+class MultiAgentCoordinator:
+    """Coordinate context across multiple agents."""
+
+    def __init__(self):
+        self.shared: dict[str, SharedContext] = {}
+
+    def create_session(self, session_id: str) -> SharedContext:
+        self.shared[session_id] = SharedContext(session_id=session_id)
+        return self.shared[session_id]
+
+    async def delegate(
+        self,
+        from_agent: str,
+        to_agent: str,
+        task: dict,
+        session_id: str
+    ) -> Any:
+        """Delegate task to another agent with shared context."""
+        context = self.shared.get(session_id)
+        if not context:
+            raise ValueError(f"Session {session_id} not found")
+
+        # Send task to target agent
+        context.send_to(from_agent, to_agent, {
+            "task": task,
+            "caller": from_agent
+        })
+
+        # Update agent state
+        context.agent_states[from_agent] = {
+            "status": "waiting_delegation",
+            "delegated_to": to_agent
+        }
+
+        return {"status": "delegated", "to": to_agent}
+```
+
+## Context Security
+
+```python
+import hashlib
+from typing import Any
+
+class SecureContextManager:
+    """Manage sensitive data in context."""
+
+    def __init__(self):
+        self.allowed_keys: set[str] = {"user_id", "session_id"}
+        self.redacted_value = "[REDACTED]"
+
+    def sanitize(self, context: dict[str, Any]) -> dict[str, Any]:
+        """Remove sensitive information from context."""
+        sanitized = {}
+
+        for key, value in context.items():
+            if key in self.allowed_keys:
+                sanitized[key] = value
+            elif isinstance(value, dict):
+                sanitized[key] = self.sanitize(value)
+            elif isinstance(value, str) and self._is_sensitive(key):
+                sanitized[key] = self.redacted_value
+            else:
+                sanitized[key] = value
+
+        return sanitized
+
+    def _is_sensitive(self, key: str) -> bool:
+        sensitive_patterns = [
+            "password", "token", "secret", "api_key", "credential"
+        ]
+        return any(p in key.lower() for p in sensitive_patterns)
+
+    def add_audit(self, context: dict, action: str, agent_id: str) -> dict:
+        """Add audit trail to context."""
+        import datetime
+        return {
+            **context,
+            "_audit": {
+                "action": action,
+                "agent_id": agent_id,
+                "timestamp": datetime.datetime.now().isoformat()
+            }
+        }
+```
