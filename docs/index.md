@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "A HA!"
-  text: "Hi! 😊"
+  text: "😊"
   tagline: Record my learning and thinking
   image:
     src: /logo.JPG
