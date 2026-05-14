@@ -98,6 +98,7 @@ export default defineConfig({
                     {text: 'Agent Loop', link: '/ai/agent-loop'},
                     {text: 'Deep Agents', link: '/ai/deepagents'},
                     {text: 'LangChain', link: '/ai/langchain'},
+                    {text: 'LangChain Memory', link: '/ai/langchain-memory'},
                     {text: 'LangChain Agent', link: '/ai/langchain-agent'},
                     {text: 'RAG & Embeddings', link: '/ai/rag'},
                     {text: 'Prompt Engineering', link: '/ai/prompt'},
