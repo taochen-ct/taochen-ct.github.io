@@ -26,6 +26,9 @@ hero:
       text: AI
       link: /ai
     - theme: alt
+      text: Hadoop
+      link: /hadoop
+    - theme: alt
       text: Review
       link: /review
 

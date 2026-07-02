@@ -109,6 +109,13 @@ export default defineConfig({
                 ]
             },
             {
+                text: 'Hadoop',
+                items: [
+                    {text: 'Overview', link: '/hadoop'},
+                    {text: 'YARN Architecture', link: '/hadoop/yarn-architecture'},
+                ]
+            },
+            {
                 text: 'Review',
                 items: [
                     {text: 'Overview', link: '/review'},
