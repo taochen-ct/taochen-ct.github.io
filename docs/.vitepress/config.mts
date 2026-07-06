@@ -60,6 +60,7 @@ export default defineConfig({
                     {text: 'Type Hints & Pydantic', link: '/python/typing'},
                     {text: 'Async HTTP (httpx)', link: '/python/httpx'},
                     {text: 'Package Management (Poetry)', link: '/python/poetry'},
+                    {text: 'Package Management (uv)', link: '/python/uv'},
                     {text: 'Testing (pytest)', link: '/python/pytest'},
                     {text: 'Logging', link: '/python/logging'},
                     {text: 'Database (SQLAlchemy)', link: '/python/sqlalchemy'},

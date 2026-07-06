@@ -1,0 +1,40 @@
+import{_ as a,c as i,o as n,ag as e}from"./chunks/framework.D6L8gzMI.js";const c=JSON.parse('{"title":"Overview","description":"","frontmatter":{"title":"Overview","prev":false,"next":{"link":"/linux/commands","text":"Basic Commands"}},"headers":[],"relativePath":"linux/index.md","filePath":"linux/index.md","lastUpdated":1774939140000}'),t={name:"linux/index.md"};function l(p,s,h,r,d,o){return n(),i("div",null,s[0]||(s[0]=[e(`<h1 id="linux" tabindex="-1">Linux <a class="header-anchor" href="#linux" aria-label="Permalink to &quot;Linux&quot;">​</a></h1><p>Linux is a family of open-source Unix-like operating systems based on the Linux kernel.</p><h2 id="system-overview" tabindex="-1">System Overview <a class="header-anchor" href="#system-overview" aria-label="Permalink to &quot;System Overview&quot;">​</a></h2><ul><li><strong>Kernel</strong>: The core of the OS, manages hardware resources</li><li><strong>Shell</strong>: Command interpreter (bash, zsh, sh)</li><li><strong>File System</strong>: Hierarchical directory structure</li><li><strong>Users</strong>: Multi-user system with permission management</li></ul><h2 id="file-system-structure" tabindex="-1">File System Structure <a class="header-anchor" href="#file-system-structure" aria-label="Permalink to &quot;File System Structure&quot;">​</a></h2><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>/               # Root directory</span></span>
+<span class="line"><span>├── bin/        # Essential binaries</span></span>
+<span class="line"><span>├── sbin/       # System binaries</span></span>
+<span class="line"><span>├── etc/        # Configuration files</span></span>
+<span class="line"><span>├── home/       # User home directories</span></span>
+<span class="line"><span>├── root/       # Root user home</span></span>
+<span class="line"><span>├── var/        # Variable files (logs, etc.)</span></span>
+<span class="line"><span>├── usr/        # User programs</span></span>
+<span class="line"><span>├── tmp/        # Temporary files</span></span>
+<span class="line"><span>├── proc/       # Process information</span></span>
+<span class="line"><span>├── dev/        # Device files</span></span>
+<span class="line"><span>└── lib/        # Shared libraries</span></span></code></pre></div><h2 id="common-distributions" tabindex="-1">Common Distributions <a class="header-anchor" href="#common-distributions" aria-label="Permalink to &quot;Common Distributions&quot;">​</a></h2><table tabindex="0"><thead><tr><th>Distribution</th><th>Based On</th><th>Package Manager</th></tr></thead><tbody><tr><td>Ubuntu</td><td>Debian</td><td>apt</td></tr><tr><td>Debian</td><td>-</td><td>apt</td></tr><tr><td>CentOS</td><td>Red Hat</td><td>yum/dnf</td></tr><tr><td>RHEL</td><td>-</td><td>yum/dnf</td></tr><tr><td>Fedora</td><td>RHEL</td><td>dnf</td></tr><tr><td>Arch</td><td>-</td><td>pacman</td></tr><tr><td>openSUSE</td><td>-</td><td>zypper</td></tr></tbody></table><h2 id="shell-basics" tabindex="-1">Shell Basics <a class="header-anchor" href="#shell-basics" aria-label="Permalink to &quot;Shell Basics&quot;">​</a></h2><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Switch shell</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">bash</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">zsh</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">sh</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Environment variables</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">echo</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> $PATH</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">export</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> PATH</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">$PATH:/new/path</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Aliases</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">alias</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> ll</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&#39;ls -la&#39;</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">alias</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> gs</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&#39;git status&#39;</span></span></code></pre></div><h2 id="permissions" tabindex="-1">Permissions <a class="header-anchor" href="#permissions" aria-label="Permalink to &quot;Permissions&quot;">​</a></h2><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>rwx r-x r-x  (755)</span></span>
+<span class="line"><span>|  |  |</span></span>
+<span class="line"><span>|  |  └── Others</span></span>
+<span class="line"><span>|  └----- Group</span></span>
+<span class="line"><span>└-------- Owner</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>r = 4 (read)</span></span>
+<span class="line"><span>w = 2 (write)</span></span>
+<span class="line"><span>x = 1 (execute)</span></span></code></pre></div><div class="language-bash vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">bash</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Change permissions</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">chmod</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 755</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> file</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">chmod</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> +x</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> script.sh</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Change owner</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">chown</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> user:group</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> file</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Numeric format</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">chmod</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 644</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> file</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">  # rw-r--r--</span></span>
+<span class="line"><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">chmod</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 700</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> file</span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"> # rwx------</span></span></code></pre></div>`,13)]))}const g=a(t,[["render",l]]);export{c as __pageData,g as default};

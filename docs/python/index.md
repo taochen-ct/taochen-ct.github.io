@@ -164,6 +164,14 @@ word_lengths = {word: len(word) for word in words}
 gen = (x**2 for x in range(1000))
 ```
 
+## Package Management
+
+| Tool | Use Case |
+|------|----------|
+| `pip` | Traditional package installation |
+| `poetry` | Modern project management |
+| `uv` | Ultra-fast all-in-one replacement |
+
 ## Common Libraries
 
 | Library | Purpose |
