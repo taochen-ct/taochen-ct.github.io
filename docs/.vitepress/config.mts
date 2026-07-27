@@ -75,6 +75,7 @@ export default defineConfig({
                     {text: 'Error Solutions', link: '/docker/error'},
                     {text: 'Dockerfile', link: '/docker/dockerfile'},
                     {text: 'Docker Compose', link: '/docker/compose'},
+                    {text: 'RustFS Distributed Cluster', link: '/docker/rustfs'},
                 ]
             },
             {
