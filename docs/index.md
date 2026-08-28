@@ -35,26 +35,26 @@ hero:
 features:
   - title: 🛠️ 技术栈
     details: |
-      **后端**：Python (Flask / FastAPI / Tornado)、Go (Gin / gRPC)
-      **数据库**：MySQL、PostgreSQL、MongoDB、Redis、Milvus
-      **运维**：Docker、Kubernetes、Nginx、Gunicorn、Celery
-      **AI / LLM**：LangChain、LangGraph、RAG、DeepAgents、Dify、MCP
-      **模型部署**：Ollama、vLLM、MindIE (NPU)
-      **前端**：React、TypeScript、Ant Design、ECharts、WebSocket
-      **机器学习**：XGBoost、逻辑回归、WOE / IV、KS / PSI
-      **数据工程**：数据仓库分层、Spark、YARN
+      <strong>后端</strong>：Python (Flask / FastAPI / Tornado)、Go (Gin / gRPC)
+      <br><strong>数据库</strong>：MySQL、PostgreSQL、MongoDB、Redis、Milvus
+      <br><strong>运维</strong>：Docker、Kubernetes、Nginx、Gunicorn、Celery
+      <br><strong>AI / LLM</strong>：LangChain、LangGraph、RAG、DeepAgents、Dify、MCP
+      <br><strong>模型部署</strong>：Ollama、vLLM、MindIE (NPU)
+      <br><strong>前端</strong>：React、TypeScript、Ant Design、ECharts、WebSocket
+      <br><strong>机器学习</strong>：XGBoost、逻辑回归、WOE / IV、KS / PSI
+      <br><strong>数据工程</strong>：数据仓库分层、Spark、YARN
 
   - title: 🚀 项目领域
     details: |
       16 个生产项目，覆盖 6 大领域 —— 从基础设施到 AI 应用层：
-      云原生数据平台 · AI / LLM 工程化 · Agent / 多智能体
-      模型部署 & 网关 · 业务系统 · 机器学习
+      <br>云原生数据平台 · AI / LLM 工程化 · Agent / 多智能体
+      <br>模型部署 & 网关 · 业务系统 · 机器学习
 
   - title: ✨ 个人技能
     details: |
       端到端交付 · 高并发架构设计 · AI 工程化落地
-      数据工程能力 · 注重工程化 · 技术输出（50+ 篇博客）
-      开源贡献（marimo fork）
+      <br>数据工程能力 · 注重工程化 · 技术输出（50+ 篇博客）
+      <br>开源贡献（marimo fork）
 ---
 
 ## 📂 项目分类
