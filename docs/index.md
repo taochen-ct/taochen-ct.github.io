@@ -33,7 +33,7 @@ hero:
       link: /review
 
 features:
-  - title: 🛠️ 技术栈
+  - title: 技术栈
     details: |
       <strong>后端</strong>：Python (Flask / FastAPI / Tornado)、Go (Gin / gRPC)
       <br><strong>数据库</strong>：MySQL、PostgreSQL、MongoDB、Redis、Milvus
@@ -44,13 +44,13 @@ features:
       <br><strong>机器学习</strong>：XGBoost、逻辑回归、WOE / IV、KS / PSI
       <br><strong>数据工程</strong>：数据仓库分层、Spark、YARN
 
-  - title: 🚀 项目领域
+  - title: 项目领域
     details: |
       16 个生产项目，覆盖 6 大领域 —— 从基础设施到 AI 应用层：
       <br>云原生数据平台 · AI / LLM 工程化 · Agent / 多智能体
       <br>模型部署 & 网关 · 业务系统 · 机器学习
 
-  - title: ✨ 个人技能
+  - title: 个人技能
     details: |
       端到端交付 · 高并发架构设计 · AI 工程化落地
       <br>数据工程能力 · 注重工程化 · 技术输出（50+ 篇博客）
@@ -59,9 +59,9 @@ features:
 
 ## 📂 项目分类
 
-- **🟦 云原生数据平台**：分布式数据科学平台、数据中台
-- **🟪 AI / LLM 工程化**：知识图谱 & RAG、AI 工作流平台、决策引擎、评分卡智能平台
-- **🟨 Agent / 多智能体**：舆情分析 Agent、多智能体运行平台
-- **🟩 模型部署 & 网关**：GPU/NPU 模型部署、LLM API 网关、大数据 MCP 服务
-- **🟧 业务系统**：在线考试系统、多门店 PMS、实时流量监控
-- **🟥 机器学习**：诈骗电话识别建模
+- **云原生数据平台**：分布式数据科学平台、数据中台
+- **AI / LLM 工程化**：知识图谱 & RAG、AI 工作流平台、决策引擎、评分卡智能平台
+- **Agent / 多智能体**：舆情分析 Agent、多智能体运行平台
+- **模型部署 & 网关**：GPU/NPU 模型部署、LLM API 网关、大数据 MCP 服务
+- **业务系统**：在线考试系统、多门店 PMS、实时流量监控
+- **机器学习**：诈骗电话识别建模
