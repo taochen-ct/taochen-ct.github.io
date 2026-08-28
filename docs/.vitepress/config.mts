@@ -86,6 +86,7 @@ export default defineConfig({
                     {text: 'Basic Commands', link: '/linux/commands'},
                     {text: 'Network', link: '/linux/network'},
                     {text: 'Systemd', link: '/linux/systemd'},
+                    {text: 'Disk & LVM Mount', link: '/linux/lvm-mount'},
                 ]
             },
             {
